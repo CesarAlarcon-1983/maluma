@@ -1,5 +1,17 @@
 .venta {
     overflow: hidden;
+    padding-top: 50px;
+
+    &__title {
+        margin: 0;
+        color: $blue;
+        font-size: 26px;
+        text-transform: uppercase;
+
+        @include mq(md) {
+            font-size: 40px;
+        }
+    }
 
     &__filtros {
         padding: 50px 0;

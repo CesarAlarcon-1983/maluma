@@ -5,22 +5,21 @@ var Header = function() {
     var header = $('.header');
     var body = $('body');
     var menuOpen = $('.header__hamburguer');
-    var menuClose = $('.header__nav__close');
 
     menuOpen.on('click', function(){
         header.toggleClass('-open');
         body.toggleClass('-hideOverflow');
     });
 
-    //searchbox functionallity
-    var tabs = $('.home__search__tab');
+    // searchbox functionallity
+    // var tabs = $('.home__search__tab');
   
-    tabs.first().addClass('-active');
+    // tabs.first().addClass('-active');
 
-    tabs.on('click', function() {
-        tabs.removeClass('-active')
-        $(this).addClass('-active');
-    })
+    // tabs.on('click', function() {
+    //     tabs.removeClass('-active')
+    //     $(this).addClass('-active');
+    // })
 
     //filter show mobile functionallity
 
@@ -32,7 +31,7 @@ var Header = function() {
     });
 
     //venta-detalle tabs & images functionallity
-    var tabs = $('.venta-detalle__details__tab');
+    var ventaDetalleTabs = $('.venta-detalle__details__tab');
     var galleryImages = $('.venta-detalle__image-gallery__image img')
     var mainImage = $('.venta-detalle__main-image img');
 
@@ -52,10 +51,10 @@ var Header = function() {
 
     console.log(galleryImages);
 
-    tabs.first().addClass('-active');
+    ventaDetalleTabs.first().addClass('-active');
 
-    tabs.on('click', function() {
-        tabs.removeClass('-active');
+    ventaDetalleTabs.on('click', function() {
+    ventaDetalleTabs.removeClass('-active');
         $(this).addClass('-active');
     });
 

@@ -25,9 +25,10 @@
 
     &__details {
         &__container {
+            box-shadow: 0 5px 20px rgba(0,0,0,.15);
             background: $white;
             margin-top: -200px;
-            padding: 40px 20px 20px;
+            padding: 40px 30px 20px;
             margin-bottom: 50px;
 
             @include mq(md) {
@@ -39,6 +40,7 @@
             margin: 0;
             margin-bottom: 20px;
             color: $darkGray;
+            line-height: 1.5;
 
             span {
                 color: $blue;
@@ -55,6 +57,7 @@
 
             li {
                 color: $darkGray;
+                margin-bottom: 5px;
             }
         }
 
@@ -65,10 +68,17 @@
 
             @include mq(md) {
                 margin-top: -100px;
-                width: 70%;
+                width: 80%;
+            }
+
+            .slick-slide {
+                @include mq(md) {
+                    padding: 0 20px 20px;
+                }
             }
         }
 
+        
         &__slider-title {
             font-size: 30px;
             margin: 0;
@@ -87,6 +97,10 @@
             left: 0;
             transform: translateX(0);
 
+            @include mq(md) {
+                left: 20px;
+            }
+
             li {
                 button {
                     &:before {
@@ -103,7 +117,18 @@
 
         &__slide {
             width: 100%;
-        }
 
+            .propiedad {
+                .slick-prev,
+                .slick-next,
+                .slick-dots {
+                    display: none !important;
+                }
+
+                .slick-slide {
+                    padding: 0;
+                }
+            }
+        }
     }
 }

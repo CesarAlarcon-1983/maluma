@@ -150,12 +150,18 @@
         }
 
 
-        &__form-select {
+        &__form-select,
+        &__form-date {
             height: 50px;
             padding: 0 20px;
             color: $darkGray;
             background: transparent;
             outline: none;
+            border: 1px solid $midGray;
+
+            &::-webkit-inner-spin-button {
+                display: none;
+            }
         }
 
         &__form-button {

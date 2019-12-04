@@ -4,29 +4,35 @@ include ./_modules/propiedad/propiedad
 
 block content
     main.home
+        a.home__group(href="#")
+            p tasaciones online
+            i.fa.fa-whatsapp
         section.home__hero
+            iframe(src="https://www.youtube.com/embed/5poMa_byLc8?autoplay=1&playlist=5poMa_byLc8&loop=1&controls=0&mute=1&showinfo=0")
             .container
                 .row
                     .col-24
                         .home__hero__container
                             h2.home__hero__title Maluma inmobiliaria,<br>tu próximo hogar
                             p.home__hero__text ¡Tenemos más de 350 propiedades online para vos!
-                    .col-24
-                        .home__hero__wrapper
-                            a.home__hero__group(href="#")
-                                p tasaciones online
-                                i.fa.fa-whatsapp
+                    //- .col-24
+                    //-     .home__hero__wrapper
+                            //- a.home__hero__group(href="#")
+                            //-     p tasaciones online
+                            //-     i.fa.fa-whatsapp
 
         section.home__search
             .container
                 .row
                     .col-24
-                        .home__search__searchbox
+                        form.home__search__searchbox
                             .home__search__tabs
                                 .home__search__tab
-                                    p.home__search__tab-text venta
+                                    input.home__search__tab-input(type="radio" name="radio" id="radio1" checked)
+                                    label.home__search__tab-label(for="radio1") venta
                                 .home__search__tab
-                                    p.home__search__tab-text alquiler
+                                    input.home__search__tab-input(type="radio" name="radio" id="radio2")
+                                    label.home__search__tab-label(for="radio2") alquiler
                             .home__search__inputs
                                 .home__search__group
                                     select.home__search__select
@@ -98,13 +104,13 @@ block content
                         .row
                             .col-24.col-md-8
                                 .home__modules__wrapper
-                                    img(src="https://picsum.photos/id/237/300/300")
+                                    img(src="/images/propiedad-1.png")
                                     p.home__modules__text El mejor precio<br>del mercado
                             .col-24.col-md-8
                                 .home__modules__wrapper
-                                    img(src="https://picsum.photos/id/238/300/300")
+                                    img(src="/images/propiedad-2.png")
                                     p.home__modules__text Servicio garantizado
                             .col-24.col-md-8
                                 .home__modules__wrapper
-                                    img(src="https://picsum.photos/id/239/300/300")
+                                    img(src="/images/propiedad-3.png")
                                     p.home__modules__text Propiedades destacadas

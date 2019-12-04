@@ -1,56 +1,92 @@
 [
     {
-        "url":"https://picsum.photos/id/237/1200/1300",
+        "url":"/alquiler-detalle",
         "type":"casa",
         "address":"juan F. aranguren al 4800",
         "size":"417.00",
         "rooms":"5",
         "bathrooms":"2",
-        "price":"530.000"
+        "price":"530.000",
+        "images": [
+            "/images/propiedad-1.png",
+            "/images/propiedad-2.png",
+            "/images/propiedad-3.png",
+            "/images/propiedad-4.png"
+        ]
     },
     {
-        "url":"https://picsum.photos/id/240/1200/1300",
+        "url":"/venta-detalle",
         "type":"casa",
         "address":"larrazabal al 1100",
         "size":"417.00",
         "rooms":"5",
         "bathrooms":"2",
-        "price":"520.000"
+        "price":"520.000",
+        "images": [
+            "/images/propiedad-1.png",
+            "/images/propiedad-2.png",
+            "/images/propiedad-3.png",
+            "/images/propiedad-4.png"
+        ]
     },
     {
-        "url":"https://picsum.photos/id/239/1200/1300",
+        "url":"/alquiler-detalle",
         "type":"departamento",
         "address":"corvalan al 200",
         "size":"417.00",
         "rooms":"5",
         "bathrooms":"2",
-        "price":"380.000"
+        "price":"380.000",
+        "images": [
+            "/images/propiedad-1.png",
+            "/images/propiedad-2.png",
+            "/images/propiedad-3.png",
+            "/images/propiedad-4.png"
+        ]
     },
     {
-        "url":"https://picsum.photos/id/231/1200/1300",
+        "url":"/venta-detalle",
         "type":"casa",
         "address":"juan F. aranguren al 4800",
         "size":"417.00",
         "rooms":"5",
         "bathrooms":"2",
-        "price":"530.000"
+        "price":"530.000",
+        "images": [
+            "/images/propiedad-1.png",
+            "/images/propiedad-2.png",
+            "/images/propiedad-3.png",
+            "/images/propiedad-4.png"
+        ]
     },
     {
-        "url":"https://picsum.photos/id/232/1200/1300",
+        "url":"/venta-detalle",
         "type":"casa",
         "address":"larrazabal al 1100",
         "size":"417.00",
         "rooms":"5",
         "bathrooms":"2",
-        "price":"520.000"
+        "price":"520.000",
+        "images": [
+            "/images/propiedad-1.png",
+            "/images/propiedad-2.png",
+            "/images/propiedad-3.png",
+            "/images/propiedad-4.png"
+        ]
     },
     {
-        "url":"https://picsum.photos/id/233/1200/1300",
+        "url":"/venta-detalle",
         "type":"departamento",
         "address":"corvalan al 200",
         "size":"417.00",
         "rooms":"5",
         "bathrooms":"2",
-        "price":"380.000"
+        "price":"380.000",
+        "images": [
+            "/images/propiedad-1.png",
+            "/images/propiedad-2.png",
+            "/images/propiedad-3.png",
+            "/images/propiedad-4.png"
+        ]
     }
 ]

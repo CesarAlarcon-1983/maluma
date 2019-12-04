@@ -1,7 +1,12 @@
+include ../../_modules/slider/slider
+
 mixin propiedad(item)
-  a.propiedad(href="#")
-    .propiedad__image
-      img(src=item.url)
+  a.propiedad(href=item.url)
+    +slider('propiedad__slider')
+      each url in item.images
+        .propiedad__slide
+          .propiedad__image
+            img(src=url)
     .propiedad__content
       .propiedad__content-group
         h4.propiedad__type=item.type
