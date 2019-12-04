@@ -386,8 +386,8 @@
     }
 
     &__emprendimiento {
-        padding: 80px 0;
-        background: url('https://picsum.photos/id/238/1900/1100') no-repeat center center / cover;
+        padding: 120px 0 80px 0;
+        background: url('/images/home-banner-1.jpg') no-repeat center center / cover;
 
         &__title {
             text-transform: uppercase;
@@ -443,7 +443,7 @@
 
     &__busqueda {
         padding: 120px 0 40px 0;
-        background: url('https://picsum.photos/id/240/1900/1100') no-repeat center center / cover;
+        background: url('/images/home-banner-2.jpg') no-repeat center center / cover;
 
         &__title {
             text-transform: uppercase;

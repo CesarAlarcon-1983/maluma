@@ -1,0 +1,51 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+block content
+  main.tasaciones
+    section.tasaciones__hero
+      .container
+        .row
+          .col-24
+            h2.tasaciones__hero__title Tasaciones
+    section.tasaciones__details
+      .container
+        .row
+          .col-24.col-md-14
+            .tasaciones__details__container
+              h3.tasaciones__details__title ¿Sabe usted cuánto vale hoy su propiedad?
+              p.tasaciones__details__text Si usted desea vender o alquilar su propiedad, necesita saber su valor real en el mercado, para ello contamos con un equipo de profesionales dispuesto a asesorarlo.
+              p.tasaciones__details__text Sabemos que el éxito de su operación inmobiliaria depende en gran medida de que usted conozca el justo valor de su propiedad. Por eso, en nuestra empresa le ofrecemos tasar su propiedad.
+              p.tasaciones__details__text Confíenos su tasación y obtendrá el valor real de su propiedad.
+
+          .col-24.col-md-10
+            .tasaciones__details__form-container
+              h3.tasaciones__details__form-title FORMULARIO DE TASACIONES
+              form.tasaciones__details__form
+                .row
+                  .col-24
+                    .tasaciones__details__form-group
+                      input.tasaciones__details__form-input(placeholder="Nombre")
+                  .col-24
+                    .tasaciones__details__form-group
+                      input.tasaciones__details__form-input(placeholder="Teléfono")
+                  .col-24
+                    .tasaciones__details__form-group
+                      input.tasaciones__details__form-input(placeholder="Email")
+
+                  .col-24
+                    .tasaciones__details__form-group
+                      input.tasaciones__details__form-input(placeholder="Nombre de la propiedad")
+                  .col-24
+                    .tasaciones__details__form-group
+                      input.tasaciones__details__form-input(placeholder="Asunto")
+                  .col-24
+                    .tasaciones__details__form-group.tasaciones__details__form-group--textarea
+                      textarea.tasaciones__details__form-input(placeholder="Mensaje")
+                  .col-24
+                    .tasaciones__details__form-group
+                      button.tasaciones__details__form-button(type="submit") enviar
+                  

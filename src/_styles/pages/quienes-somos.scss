@@ -1,9 +1,10 @@
-.quienes-somos {
+.quienes-somos,
+.tasaciones {
     background: $lightestGray;
     padding-bottom: 100px;
 
     &__hero {
-        background: url('https://picsum.photos/id/237/1200/1300') no-repeat center center / cover;
+        background: url('/images/hero-quienes-somos.jpg') no-repeat center center / cover;
         height: 90vh;
         display: flex;
         align-items: center;
@@ -16,6 +17,8 @@
             color: $white;
             font-size: 40px;
             font-weight: 900;
+            position: relative;
+            z-index: 2;
 
             @include mq(md) {
                 font-size: 60px;
@@ -24,16 +27,25 @@
     }
 
     &__details {
+        padding-top: 100px;
+
         &__container {
             box-shadow: 0 5px 20px rgba(0,0,0,.15);
             background: $white;
-            margin-top: -200px;
+            // margin-top: -200px;
             padding: 40px 30px 20px;
             margin-bottom: 50px;
 
             @include mq(md) {
                 margin-bottom: 0;
             }
+        }
+
+        &__title {
+            color: $blue;
+            font-size: 40px;
+            margin: 0;
+            margin-bottom: 20px;
         }
 
         &__text {
@@ -61,74 +73,113 @@
             }
         }
 
-        &__slider-container {
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
+        &__form-container {
 
             @include mq(md) {
-                margin-top: -100px;
-                width: 80%;
-            }
-
-            .slick-slide {
-                @include mq(md) {
-                    padding: 0 20px 20px;
-                }
+                // margin-top: -100px;
             }
         }
 
         
-        &__slider-title {
+        &__form-title {
             font-size: 30px;
             margin: 0;
             margin-bottom: 20px;
             text-transform: uppercase;
             text-align: center;
+            color: $red;
 
             @include mq(md) {
-                color: $white;
                 text-align: left;
             }
         }
 
-        .slick-dots {
-            bottom: -70px;
-            left: 0;
-            transform: translateX(0);
+        &__form-group {
+            height: 50px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
 
-            @include mq(md) {
-                left: 20px;
+            &--select,
+            &--select-labeless {
+                height: 90px;
+                justify-content: flex-end;
             }
 
-            li {
-                button {
-                    &:before {
-                        font-size: 20px;
-                        color: $blue;
+            &--select-labeless {
+                height: 50px;
+
+                &:after {
+                    content: 'a';
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 57px;
+                    color: $darkGray;
+
+                    @include mq(md) {
+                        left: -19px;
+                        bottom: 17px;
+                        transform: translateX(0);
                     }
                 }
+
+                @include mq(md) {
+                    height: 90px;
+                }
+            }
+
+            &--textarea {
+                height: 200px;
             }
         }
 
-        &__slider {
+        &__form-input {
+            height: 100%;
+            padding: 20px;
+            outline: none;
+            color: $darkGray;
+            border: 1px solid $midGray;
             width: 100%;
+            background: transparent;
         }
 
-        &__slide {
+        &__form-button {
             width: 100%;
+            height: 100%;
+            background: $red;
+            border: none;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            color: $white;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 700;
+            outline: none;
 
-            .propiedad {
-                .slick-prev,
-                .slick-next,
-                .slick-dots {
-                    display: none !important;
-                }
-
-                .slick-slide {
-                    padding: 0;
-                }
+            @include mq(md) {
+                width: 30%;
             }
+        }
+    }
+}
+
+.tasaciones {
+    &__hero {
+        background: url('/images/hero-tasaciones.jpg') no-repeat center center / cover;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,.3);
         }
     }
 }
