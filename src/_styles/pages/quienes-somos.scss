@@ -1,0 +1,109 @@
+.quienes-somos {
+    background: $lightestGray;
+    padding-bottom: 100px;
+
+    &__hero {
+        background: url('https://picsum.photos/id/237/1200/1300') no-repeat center center / cover;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+
+        @include mq(md) {
+            height: 80vh;
+        }
+
+        &__title {
+            color: $white;
+            font-size: 40px;
+            font-weight: 900;
+
+            @include mq(md) {
+                font-size: 60px;
+            }
+        }
+    }
+
+    &__details {
+        &__container {
+            background: $white;
+            margin-top: -200px;
+            padding: 40px 20px 20px;
+            margin-bottom: 50px;
+
+            @include mq(md) {
+                margin-bottom: 0;
+            }
+        }
+
+        &__text {
+            margin: 0;
+            margin-bottom: 20px;
+            color: $darkGray;
+
+            span {
+                color: $blue;
+                font-weight: 900;
+            }
+
+            strong {
+                font-weight: 900;
+            }
+        }
+
+        &__list {
+            margin-bottom: 20px;
+
+            li {
+                color: $darkGray;
+            }
+        }
+
+        &__slider-container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include mq(md) {
+                margin-top: -100px;
+                width: 70%;
+            }
+        }
+
+        &__slider-title {
+            font-size: 30px;
+            margin: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            text-align: center;
+
+            @include mq(md) {
+                color: $white;
+                text-align: left;
+            }
+        }
+
+        .slick-dots {
+            bottom: -70px;
+            left: 0;
+            transform: translateX(0);
+
+            li {
+                button {
+                    &:before {
+                        font-size: 20px;
+                        color: $blue;
+                    }
+                }
+            }
+        }
+
+        &__slider {
+            width: 100%;
+        }
+
+        &__slide {
+            width: 100%;
+        }
+
+    }
+}

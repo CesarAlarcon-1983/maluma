@@ -1,0 +1,44 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+include ../_modules/slider/slider
+include ../_modules/propiedad/propiedad
+
+block content
+  main.quienes-somos
+    section.quienes-somos__hero
+      .container
+        .row
+          .col-24
+            h2.quienes-somos__hero__title Nosotros
+    section.quienes-somos__details
+      .container
+        .row
+          .col-24.col-md-14
+            .quienes-somos__details__container
+              p.quienes-somos__details__text <span>Maluma Constructora - Inmobiliaria</span> conforma una empresa de servicios inmobiliarios integrales con más de 80 años de trayectoria en el mercado de bienes raíces, en la zona oeste y aledaña de la capital.
+              p.quienes-somos__details__text Nos destacamos por la forma de trabajo absolutamente profesional, que apunta a la atención personalizada e integral al servicio de nuestros clientes, trabajando en común en la búsqueda del objeto final: el de cumplir con sus expectativas.
+              p.quienes-somos__details__text Su principal titular, <strong>HERMINIA MARÍA DE PIERO</strong>, Martillera Pública Nacional, con una amplia experiencia y trayectoria, heredó su vocación y continuó la labor de su padre <strong>HERMINIO CARLO DE PIERO</strong>, también Martillero Público Nacional, y quien intervino en el año 1938, en los primeros loteos del barrio de Liniers, asiento de nuestras oficinas.
+              ul.quienes-somos__details__list
+                li Ventas, compras y alquileres de propiedades urbanas y rurales.
+                li Administración de propiedades.
+                li Administración de consorcios.
+                li Asesoramiento Jurídico, Contable y Notarial.
+                li Asesoramiento económico-financiero bancario o privado para prestamos hipotecarios.
+                li Planificación y desarrollo de proyectos inmobiliarios.
+                li Negocios especiales: Transferencias de fondos de comercios en generales.
+                li Mandatos.
+                li Confiabilidad, seriedad y cuidado de los intereses y motivaciones de quienes han confiado en nosotros, son características de nuestro actuar y desempeño.
+              p.quienes-somos__details__text <span>Maluma Constructora - Inmobiliaria</span> le da la bienvenida a su Web Site y lo invita a recorrerlo, en el encontrará; una muestra de nuestros servicios y algunas de las operaciones ofrecidas. Esperamos su consulta a través de este medio.
+              p.quienes-somos__details__text <strong>La Dirección Comercial</strong>
+              p.quienes-somos__details__text Matricula Colegio Inmobiliario 5977
+          .col-24.col-md-10
+            .quienes-somos__details__slider-container
+              h3.quienes-somos__details__slider-title destacados
+              +slider('quienes-somos__details__slider')
+                each propiedad in site.data.propiedades
+                  .quienes-somos__details__slide
+                    +propiedad(propiedad)

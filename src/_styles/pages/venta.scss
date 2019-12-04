@@ -1,0 +1,237 @@
+.venta {
+    overflow: hidden;
+
+    &__filtros {
+        padding: 50px 0;
+        
+        @include mq(md) {
+            padding: 100px 0;
+        }
+
+        &__wrapper {
+            display: flex;
+            height: 50px;
+            justify-content: space-between;
+            position: relative;
+
+            @include mq(md) {
+                justify-content: initial;
+            }
+        }
+
+        &__group {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            @include mq(md) {
+                width: 15%;
+            }
+
+            &:last-child {
+                justify-content: initial;
+                align-items: center;
+                background: $lightGray;
+                flex-direction: row;
+                width: 50px;
+                padding: 5px 0 5px 0;
+
+                @include mq(md) {
+                    padding: 5px 20px 5px 0;
+                    width: 85%;
+                }
+            }
+        }
+
+
+        &__filter-icon {
+            width: 50px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            border: none;
+            outline: none;
+            
+            @include mq(md) {
+                padding: 5px 0;
+                border-right: 1px solid $darkGray;
+            }
+
+            i {
+                color: $blue;
+            }
+        }
+
+        &__text {
+            font-size: 14px;
+            color: $darkestGray;
+            font-weight: 900;
+            padding-left: 3px;
+            margin-bottom: 10px;
+        }
+
+        &__sort {
+            background: transparent;
+            border: none;
+            color: $blue;
+            outline: none;
+            font-weight: 700;
+        }
+
+        &__options {
+            @include trans;
+
+            flex-grow: 1;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            background: $lightGray;
+            z-index: 2;
+            padding: 20px;
+            transform: translateX(110%);
+
+            @include mq(md) {
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                position: static;
+                opacity: 1;
+                top: auto;
+                transform: translateX(0);
+                height: 100%;
+            }
+
+            &.-open {
+                transform: translateY(0);
+            }
+        }
+
+        &__select {
+            cursor: pointer;
+            
+            background: transparent;
+            border: none;
+            height: 100%;
+            outline: none;
+            color: $darkestGray;
+            font-weight: 700;
+            font-size: 14px;
+            width: 100%;
+            margin-bottom: 20px;
+
+            @include mq(md) {
+                width: auto;
+                margin-bottom: 0;
+            }
+        }
+
+        &__radiobox {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            justify-content: center;
+
+            @include mq(md) {
+                margin-bottom: 0;
+            }
+        }
+
+        &__radiobox-title {
+            color: $darkestGray;
+            font-size: 14px;
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        &__radiobox-group {
+            &:nth-child(2) {
+                margin-right: 10px;
+
+                .venta__filtros__radiobox-label {
+                    &:before {
+                        right: -16px
+                    }
+                }
+            }
+
+            &:last-child {
+                .venta__filtros__radiobox-label {
+                    &:before {
+                        right: -17px
+                    }
+                }
+            }
+        }
+
+        &__radiobox-input {
+            position: absolute;
+            left: -9999px;
+
+            &:checked + label {
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &__radiobox-label {
+            color: $blue;
+            font-size: 14px;
+            font-weight: 900;
+            margin-right: 15px;
+            position: relative;
+            cursor: pointer;
+
+            &:after  {
+                content: '';
+                position: absolute;
+                right: -15px;
+                width: 10px;
+                height: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                border: 1px solid $blue;
+            }
+
+            &:before {
+                content: '✔';
+                position: absolute;
+                // right: -17px;
+                top: 50%;
+                width: 10px;
+                line-height: 1;
+                transform: translateY(-50%);
+                font-size: 8px;
+                opacity: 0;
+            }
+        }
+
+        &__button {
+            cursor: pointer;
+            border: none;
+            background: $red;
+            height: 50px;
+            width: 100%;
+            color: $white;
+            font-size: 14px;
+            font-weight: 700;
+
+            @include mq(md) {
+                height: 70%;
+                width: 150px;
+            }
+        }
+    }
+
+
+    &__propiedades {
+        &__container {
+            margin-bottom: 40px;
+        }
+    }
+}

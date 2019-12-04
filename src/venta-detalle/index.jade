@@ -1,0 +1,161 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+block content
+  main.venta-detalle
+    .container
+      .row
+        .col-24.col-md-14
+          .row
+            .col-24
+              .venta-detalle__heading
+                .venta-detalle__heading__group
+                  span.venta-detalle__heading__type Venta
+                  p.venta-detalle__heading__type-description Casa en Venta Capital Federal Velez Sarsfield
+                .venta-detalle__heading__group
+                  p.venta-detalle__heading__address JUAN F. ARANGUREN AL 4800
+                .venta-detalle__heading__group
+                  .venta-detalle__heading__details-group
+                    .venta-detalle__heading__details-image
+                      img(src="https://picsum.photos/id/237/300/300")
+                    span 417.00m2
+                  .venta-detalle__heading__details-group
+                    .venta-detalle__heading__details-image
+                      img(src="https://picsum.photos/id/237/300/300")
+                    span 5 AMBIENTES
+                  .venta-detalle__heading__details-group
+                    .venta-detalle__heading__details-image
+                      img(src="https://picsum.photos/id/237/300/300")
+                    span 2 baños
+
+            .col-24
+              .venta-detalle__main-image
+                img(src="")
+
+            .col-24
+              .venta-detalle__image-gallery
+                .venta-detalle__image-gallery__image
+                  img(src="https://picsum.photos/id/237/300/300")
+                .venta-detalle__image-gallery__image
+                  img(src="https://picsum.photos/id/238/300/300")
+                .venta-detalle__image-gallery__image
+                  img(src="https://picsum.photos/id/239/300/300")
+
+        .col-24.col-md-10
+          .row
+            .col-24
+              .venta-detalle__heading.venta-detalle__heading--price
+                span.venta-detalle__heading__price U$S 530.000
+            .col-24
+              .venta-detalle__form-container
+                form.venta-detalle__form
+                  h4.venta-detalle__form__title contacto
+                  .venta-detalle__form__group
+                    input.venta-detalle__form__input(placeholder="Nombre")
+                    input.venta-detalle__form__input(placeholder="Email")
+                    input.venta-detalle__form__input(placeholder="Teléfono")
+                    textarea.venta-detalle__form__input.venta-detalle__form__input--textarea
+                    button.venta-detalle__form__button Enviar
+
+            .col-24
+              .venta-detalle__social-container
+                ul.venta-detalle__social
+                  li.venta-detalle__item
+                    a(href="#")
+                      i.fa.fa-facebook
+
+                  li.venta-detalle__item
+                    a(href="#")
+                      i.fa.fa-whatsapp
+                  li.venta-detalle__item
+                    a(href="#")
+                      i.fa.fa-instagram
+                  li.venta-detalle__item
+                    a(href="#")
+                      i.fa.fa-envelope
+                  li.venta-detalle__item
+                    a(href="#")
+                      i.fa.fa-print
+
+        .col-24.col-md-14
+          .row
+            .col-24
+              .venta-detalle__description
+                h3.venta-detalle__description__title descripción
+                p.venta-detalle__description__text Venta de Casa 5 AMBIENTES en Velez Sarsfield, Capital Federal.
+                p.venta-detalle__description__text Al ingresar a la propiedad nos encontramos con un jardín de entrada, un amplio living, luego una cocina comedor con muebles sobre y bajo mesada, toillete de recepción, un parque, pileta en fibra de vidrio y quincho con dependencia. Y sobre la planta alta se encuentran 1 dormitorio en suite con placard y 3 dormitorios con placard y baño completo.
+
+            .col-24
+              .venta-detalle__details
+                .venta-detalle__details__heading
+                  button.venta-detalle__details__tab detalles
+                  button.venta-detalle__details__tab caracteristicas
+                  button.venta-detalle__details__tab medidas
+
+                .venta-detalle__details__content
+                  .venta-detalle__details__wrapper
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Operación
+                      p.venta-detalle__details__group-text Venta
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Localidad
+                      p.venta-detalle__details__group-text Capital Federal
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Barrio
+                      p.venta-detalle__details__group-text Velez Sarsfield
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Dirección
+                      p.venta-detalle__details__group-text Juan F. Aranguren al 4800
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Ambientes
+                      p.venta-detalle__details__group-text 5 ambientes
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Atigüedad
+                      p.venta-detalle__details__group-text 27 años
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Pisos
+                      p.venta-detalle__details__group-text 2
+
+                  .venta-detalle__details__wrapper.venta-detalle__details__wrapper--right
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Agua caliente
+                      p.venta-detalle__details__group-text Termotanque
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Gas
+                      p.venta-detalle__details__group-text Natural
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Calefacción
+                      p.venta-detalle__details__group-text Tiro balanceado
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Baños
+                      p.venta-detalle__details__group-text 2
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Estado
+                      p.venta-detalle__details__group-text Muy bueno
+                    .venta-detalle__details__group
+                      h3.venta-detalle__details__group-title Cocheras
+                      p.venta-detalle__details__group-text 2
+                    .venta-detalle__details__group
+
+        .col-24.col-md-10
+          .venta-detalle__others
+            h3.venta-detalle__others__title Otras propiedades en venta
+            .venta-detalle__others__image
+              img(src="https://picsum.photos/id/239/300/300")
+            .venta-detalle__others__image
+              img(src="https://picsum.photos/id/238/300/300")
+            .venta-detalle__others__image
+              img(src="https://picsum.photos/id/237/300/300")
+            .venta-detalle__others__image
+              img(src="https://picsum.photos/id/236/300/300")
+            .venta-detalle__others__image
+              img(src="https://picsum.photos/id/235/300/300")
+            .venta-detalle__others__image
+              img(src="https://picsum.photos/id/234/300/300")
+            .venta-detalle__others__image
+              img(src="https://picsum.photos/id/233/300/300")
+            .venta-detalle__others__image
+              img(src="https://picsum.photos/id/232/300/300")

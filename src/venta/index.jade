@@ -1,0 +1,85 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+include ../_modules/propiedad/propiedad
+
+block content
+  main.venta
+    .container
+      .row
+        .col-24
+          .venta__filtros
+            .venta__filtros__wrapper
+              .venta__filtros__group
+                .venta__filtros__text Ordenar por:
+                select.venta__filtros__sort
+                  option Menor Precio
+                  option Mayor Precio
+                  option filtro 3
+                  option filtro 4
+                  option filtro 5
+              .venta__filtros__group
+                button.venta__filtros__filter-icon
+                  i.fa.fa-filter
+                .venta__filtros__options
+                  select.venta__filtros__select
+                    option Tipo de inmueble
+                    option tipo 1
+                    option tipo 2
+                    option tipo 3
+                    option tipo 4
+                    option tipo 5
+
+                  select.venta__filtros__select
+                    option Operación
+                    option Operación 1
+                    option Operación 2
+                    option Operación 3
+                    option Operación 4
+                    option Operación 5
+
+                  select.venta__filtros__select
+                    option Barrio
+                    option Barrio 1
+                    option Barrio 2
+                    option Barrio 3
+                    option Barrio 4
+                    option Barrio 5
+
+                  select.venta__filtros__select
+                    option Ambientes
+                    option 1
+                    option 2
+                    option 3
+                    option 4
+                    option 5 
+
+                  .venta__filtros__radiobox
+                    .venta__filtros__radiobox-title Cochera
+                    .venta__filtros__radiobox-group
+                      input.venta__filtros__radiobox-input(type="radio" id="radio1" name="radio")
+                      label.venta__filtros__radiobox-label(for="radio1") Si
+                    .venta__filtros__radiobox-group
+                      input.venta__filtros__radiobox-input(type="radio" id="radio2" name="radio")
+                      label.venta__filtros__radiobox-label(for="radio2") No
+
+                  select.venta__filtros__select
+                    option Amenities
+                    option Amenitie 1
+                    option Amenitie 2
+                    option Amenitie 3
+                    option Amenitie 4
+                    option Amenitie 5 
+
+                  button.venta__filtros__button Aplicar filtros
+    section.venta__propiedades
+      .container
+        .row
+          each propiedad in site.data.propiedades
+            .col-24.col-md-8
+              .venta__propiedades__container
+                +propiedad(propiedad)
+

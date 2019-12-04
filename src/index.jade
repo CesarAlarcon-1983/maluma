@@ -1,4 +1,110 @@
 extends _layouts/base
 
+include ./_modules/propiedad/propiedad
+
 block content
     main.home
+        section.home__hero
+            .container
+                .row
+                    .col-24
+                        .home__hero__container
+                            h2.home__hero__title Maluma inmobiliaria,<br>tu próximo hogar
+                            p.home__hero__text ¡Tenemos más de 350 propiedades online para vos!
+                    .col-24
+                        .home__hero__wrapper
+                            a.home__hero__group(href="#")
+                                p tasaciones online
+                                i.fa.fa-whatsapp
+
+        section.home__search
+            .container
+                .row
+                    .col-24
+                        .home__search__searchbox
+                            .home__search__tabs
+                                .home__search__tab
+                                    p.home__search__tab-text venta
+                                .home__search__tab
+                                    p.home__search__tab-text alquiler
+                            .home__search__inputs
+                                .home__search__group
+                                    select.home__search__select
+                                        option Tipo
+                                        option Casa
+                                        option Departamento
+
+                                .home__search__group
+                                    select.home__search__select
+                                        option Dormitorios
+                                        option 1
+                                        option 2
+                                        option 3
+                                        option 4
+                                        option 5
+
+                                .home__search__group
+                                    .home__search__price
+                                        label.home__search__price-range__label.js-range-price-low
+                                        label.home__search__price-range__label.js-range-price-high
+                                        .home__search__price-range__bar-wrapper
+                                            input.home__search__price-range__bar.js-range-price(type='range', multiple, value="0", step="10000" min="0", max="1500000")
+                                            input(type="hidden", name="from-price", id="inputPriceFrom")
+                                            input(type="hidden", name="to-price", id="inputPriceTo")
+                                .home__search__group
+                                    button.home__search__button Buscar Propiedad
+                    .col-24
+                        h3.home__search__title oportunidades
+                    each propiedad in site.data.propiedades 
+                        .col-24.col-md-8
+                            .home__search__propiedad
+                                +propiedad(propiedad)
+
+        section.home__emprendimiento
+            .container
+                .row
+                    .col-24.col-md-12
+                        h3.home__emprendimiento__title EMPRENDIMIENTOS 2019
+                        p.home__emprendimiento__text ¡SÉ EL PRIMERO EN DESCUBRIR<br>NUESTROS EMPRENDIMIENTOS DEL AÑO!
+                    .col-24.col-md-12
+                        .home__emprendimiento__wrapper
+                            a.home__emprendimiento__button(href="#") Visitar Ahora
+
+        section.home__busqueda
+            .container
+                .row
+                    .col-24
+                        h3.home__busqueda__title BUSCAMOS LA MEJOR PROPIEDAD PARA VOS
+                        p.home__busqueda__text Te ayudamos a encontrar lo que estás buscando
+                        a.home__busqueda__button(href="#") Registrar mi búsqueda
+
+        section.home__modules
+            .container
+                .row
+                    .col-24.col-md-18.offset-md-3
+                        .home__modules__container
+                            .home__modules__wrapper
+                                a.home__modules__casas(href="#")
+                                    p casas
+                                    .home__modules__more ver más
+                                a.home__modules__municipales(href="#")
+                                    p casas ex municipales
+                                    .home__modules__more ver más
+                            .home__modules__wrapper
+                                a.home__modules__departamentos(href="#")
+                                    p departamentos
+                                    .home__modules__more ver más
+                    .col-24.col-md-18.offset-md-3
+                        .row
+                            .col-24.col-md-8
+                                .home__modules__wrapper
+                                    img(src="https://picsum.photos/id/237/300/300")
+                                    p.home__modules__text El mejor precio<br>del mercado
+                            .col-24.col-md-8
+                                .home__modules__wrapper
+                                    img(src="https://picsum.photos/id/238/300/300")
+                                    p.home__modules__text Servicio garantizado
+                            .col-24.col-md-8
+                                .home__modules__wrapper
+                                    img(src="https://picsum.photos/id/239/300/300")
+                                    p.home__modules__text Propiedades destacadas

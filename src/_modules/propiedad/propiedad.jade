@@ -1,0 +1,23 @@
+mixin propiedad(item)
+  a.propiedad(href="#")
+    .propiedad__image
+      img(src=item.url)
+    .propiedad__content
+      .propiedad__content-group
+        h4.propiedad__type=item.type
+        h3.propiedad__address=item.address
+      .propiedad__group
+        .propiedad__wrapper
+          .propiedad__wrapper-group
+            img(src="https://picsum.photos/id/237/200/300")
+            span=item.size + "m2"
+          .propiedad__wrapper-group
+            img(src="https://picsum.photos/id/237/200/300")
+            span=item.rooms + " ambientes"
+          .propiedad__wrapper-group
+            img(src="https://picsum.photos/id/237/200/300")
+            span=item.bathrooms + " baños"
+        .propiedad__price
+          span="U$S " + item.price          
+
+

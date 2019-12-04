@@ -8,9 +8,13 @@ global.$ = global.jQuery;
 
 var Header = require('../_modules/header/header');
 var Slider = require('../_modules/slider/slider');
+var Multirange = require('../_modules/multirange/multirange');
+var Price = require('../_modules/multirange/price');
 
 $(function() {
 
     new Header();
     new Slider();
+    new Multirange();
+    new Price();
 });

@@ -1,3 +1,612 @@
 .home {
-    
+    &__hero {
+        background: url('https://picsum.photos/id/237/1200/1300') no-repeat center center / cover;
+        height: 90vh;
+        padding-top: 100px;
+
+        @include mq(md) {
+            height: 100vh;
+            padding-top: 150px;
+        }
+
+        &__container {
+
+        }
+
+        &__title {
+            color: $white;
+            margin: 0;
+            margin-bottom: 20px;
+            font-size: 30px;
+
+            @include mq(md) {
+                font-size: 60px;
+            }
+        }
+
+        &__text {
+            color: $yellow;
+            font-size: 20px;
+            margin: 0;
+
+            @include mq(md) {
+                font-size: 30px;
+            }
+        }
+
+        &__wrapper {
+            width: 100%;
+            padding: 100px 0 0 0;
+        }
+
+        &__group {
+            display: block;
+            margin-left: auto;
+            position: relative;
+            background: $white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            
+            @include mq(md) {
+                width: 400px;
+            }
+
+            p {
+                font-size: 24px;
+                margin: 0;
+                text-transform: uppercase;
+                white-space: nowrap;
+
+                @include mq(md) {
+                    font-size: 32px;
+                }
+            }
+
+            i {
+                position: absolute;
+                right: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 50px;
+
+                @include mq(md) {
+                    font-size: 60px;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate3d(-50%, -50%, 0);
+                    height: 55px;
+                    width: 55px;
+                    background: $white;
+                    border-radius: 50%;
+                    z-index: -1;
+
+                    @include mq(md) {
+                        height: 70px;
+                        width: 70px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__search {
+
+        &__searchbox {
+            margin-top: -100px;
+            margin-bottom: 50px;
+
+            @include mq(md) {
+                margin-bottom: 100px;
+            }
+        }
+
+        &__tabs {
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            @include mq(md) {
+                justify-content: flex-start;
+                width: 80%;
+            }
+        }
+
+
+        &__tab {
+            background: $midGray;
+            color: $white;
+            display: block;
+            width: 49%;
+            padding: 10px 0;
+            
+            @include mq(md) {
+                margin-right: 5px;
+                padding: 10px 20px;
+                width: 15%;
+            }
+
+            &.-active {
+                background: $blue;
+            }
+        }
+
+        &__tab-text {
+            margin: 0;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        &__inputs {
+            width: 100%;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background: $blue;
+
+            @include mq(md) {
+                flex-wrap: nowrap;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        &__group {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+
+            &:not(:last-child) {
+                margin-bottom: 20px;
+
+                @include mq(md) {
+                    margin-bottom: 0;
+                }
+            }
+            &:nth-child(2) {
+                margin-bottom: 50px;
+
+                @include mq(md) {
+                    margin-bottom: 0;
+                }
+            }
+
+            &:nth-child(3) {
+                margin-bottom: 20px;
+
+                @include mq(md) {
+                    margin-bottom: 0;
+                }
+            }
+
+            @include mq(md) {
+                width: 24%;
+                margin-bottom: 0;
+            }
+        }
+
+        &__select {
+            width: 100%;
+            height: 100%;
+            padding: 0 10px;
+        }
+
+        &__price {
+            position: relative;
+            width: 80%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            input[type=range] {
+                -webkit-appearance: none;
+            }
+
+            input[type=range]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+            }
+
+            input[type=range]:focus {
+                outline: none;
+            }
+        }
+
+        &__price-range {
+            @include mq(sm) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            &__bar-wrapper {
+                position: absolute;
+                left: -10px;
+                right: -10px;
+            }
+
+            &__bar {
+                &.original {
+                    width: 100%;
+
+                    &::-webkit-slider-runnable-track {
+                        height: 5px;
+                        background: $lightGray;
+                    }
+                }
+
+                &.ghost {
+                    width: 100%;
+
+                    // &::-webkit-slider-runnable-track {
+                    //     height: 6px;
+                    // }
+                }
+
+                &::-webkit-slider-thumb {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 100%;
+                    background: $white;
+                    cursor: pointer;
+                    margin-top: -10px;
+                    box-shadow: 1px 2px 2px $midGray;
+                }
+
+                &::-webkit-slider-runnable-track {
+                    height: 5px;
+                    background: $lightGray;
+                }
+            }
+
+            &__label {
+                position: absolute;
+                top: -30px;
+                width: 0;
+                display: flex;
+                justify-content: center;
+
+                span {
+                    position: absolute;
+                    display: inline-block;
+                    height: 25px;
+                    line-height: 25px;
+                    padding: 0 5px;
+                    background: $white;
+                    color: $black;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    font-size: 12px;
+
+                    &:before {
+                        content: '';
+                        left:50%;
+                        transform: translateX(-50%);
+                        width: 5px;
+                        height: 5px;
+                        position: absolute;
+                        top: 100%;
+                        border-top: 5px solid $white;
+                        border-left: 5px solid transparent;
+                        border-right: 5px solid transparent;
+                    }
+                }
+            }
+
+            &__price  {
+                display: flex;
+                width: 45%;
+            }
+        }
+
+        &__button {
+            background: $red;
+            border: none;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            color: $white;
+        }
+
+        &__title {
+            color: $midGray;
+            text-align: center;
+            font-size: 30px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 50px;
+
+            @include mq(md) {
+                margin-bottom: 100px;
+            }
+        }
+
+        &__propiedad {
+            margin-bottom: 40px;
+
+            .propiedad {
+                &:hover {
+                    transform: translateY(-10px);
+            
+                    .propiedad__image {
+                        img {
+                            transform: translate3d(-50%, -50%, 0) scale3d(1.1,1.1,1.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__emprendimiento {
+        padding: 80px 0;
+        background: url('https://picsum.photos/id/237/1900/1100') no-repeat center center / cover;
+
+        &__title {
+            text-transform: uppercase;
+            font-weight: 900;
+            color: $white;
+            margin: 0;
+            font-size: 26px;
+            margin-bottom: 20px;
+            
+            @include mq(md) {
+                font-size: 40px;
+                margin-bottom: 0;
+            }
+        }
+
+        &__text {
+            color: $white;
+            font-size: 20px;
+            margin: 0;
+            margin-bottom: 20px;
+
+            @include mq(md) {
+                margin-bottom: 0;
+            }
+        }
+
+        &__wrapper {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            
+            @include mq(md) {
+                justify-content: flex-end;
+            }
+        }
+
+        &__button {
+            background: $red;
+            height: 40px;
+            line-height: 40px;
+            color: $white;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 50%;
+            
+            @include mq(md) {
+                width: 25%;
+            }
+        }
+    }
+
+    &__busqueda {
+        padding: 120px 0 40px 0;
+        background: url('https://picsum.photos/id/237/1900/1100') no-repeat center center / cover;
+
+        &__title {
+            text-transform: uppercase;
+            font-weight: 900;
+            font-size: 26px;
+            color: $corpBlack;
+            margin: 0;
+
+            @include mq(md) {
+                font-size: 40px;
+            }
+        }
+
+        &__text {
+            color: $blue;
+            font-size: 16px;
+            margin: 0;
+            margin-bottom: 20px;
+
+            @include mq(md) {
+                font-size: 20px;
+            }
+        }
+
+        &__wrapper {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        &__button {
+            display: block;
+            background: $red;
+            height: 40px;
+            line-height: 40px;
+            color: $white;
+            text-align: center;
+            text-decoration: none;
+            width: 50%;
+            font-size: 14px;
+
+            @include mq(md) {
+                width: 15%;
+            }
+        }
+    }
+
+    &__modules {
+        padding: 80px 0 40px 0;
+
+        @include mq(md) {
+            padding: 80px;
+        }
+
+        &__container {
+            margin-bottom: 50px;
+
+            @include mq(md) {
+                display: flex;
+                margin-bottom: 100px;
+            }
+        }
+
+        &__wrapper {
+            height: 100%;
+            width: 50%;
+        }
+
+        &__casas,
+        &__municipales,
+        &__departamentos {
+            display: block;
+            height: 0;
+            width: 100%;
+            padding-bottom: 100%;
+            overflow: hidden;
+            position: relative;
+            background: url('https://picsum.photos/id/237/1900/1100') no-repeat center center / cover;
+
+            p {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 0);
+                color: $white;
+                text-transform: uppercase;
+                z-index: 2;
+                margin: 0;
+                font-weight: 900;
+                white-space: nowrap;
+
+                @include mq(md) {
+                    font-size: 24px;
+                }
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: transparentize($black, .85);
+            }
+
+            &:after {
+                @include trans;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: transparentize($blue, .2);
+                transform: translateX(100%);
+            }
+
+            &:hover {
+                &:after {
+                    transform: translateX(0);
+                }
+
+                .home__modules__more {
+                    transform: translateX(0);
+                }
+            }
+        }
+
+        &__municipales {
+            @include mq(md) {
+                padding-bottom: 70%;
+            }
+        }
+
+        &__departamentos {
+            @include mq(md) {
+                padding-bottom: 170%;
+            }
+        }
+
+        &__more {
+            @include trans;
+
+            display: none;
+            position: absolute;
+            bottom: 0;
+            height: 100px;
+            border-top: 1px solid $white;
+            width: 100%;
+            z-index: 3;
+            line-height: 100px;
+            padding-left: 40px;
+            font-size: 24px;
+            font-weight: 900;
+            color: $white;
+            transform: translateX(100%);
+
+            @include mq(md) {
+                display: block;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                height: 1px;
+                width: 60%;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                background: $white;
+            }
+        }
+
+        &__wrapper {
+            width: 100%;
+            margin-bottom: 40px;
+
+            @include mq(md) {
+                margin-bottom: 0;
+            }
+
+            img {
+                display: block;
+                margin: auto;
+                width: 50%;
+                height: auto;
+            }
+        }
+
+        &__text {
+            text-align: center;
+            font-size: 20px;
+            color: $corpBlack;
+            font-weight: 900;
+        }
+    }
 }

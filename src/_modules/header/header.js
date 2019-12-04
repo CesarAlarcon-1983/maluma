@@ -8,14 +8,57 @@ var Header = function() {
     var menuClose = $('.header__nav__close');
 
     menuOpen.on('click', function(){
-        header.addClass('-open');
-        body.addClass('-hideOverflow');
+        header.toggleClass('-open');
+        body.toggleClass('-hideOverflow');
     });
 
-    menuClose.on('click', function(){
-        header.removeClass('-open');
-        body.removeClass('-hideOverflow');
+    //searchbox functionallity
+    var tabs = $('.home__search__tab');
+  
+    tabs.first().addClass('-active');
+
+    tabs.on('click', function() {
+        tabs.removeClass('-active')
+        $(this).addClass('-active');
+    })
+
+    //filter show mobile functionallity
+
+    var filterButton = $('.venta__filtros__filter-icon');
+    var filtersContainer = $('.venta__filtros__options');
+
+    filterButton.on('click', function() { 
+        filtersContainer.toggleClass('-open');
     });
+
+    //venta-detalle tabs & images functionallity
+    var tabs = $('.venta-detalle__details__tab');
+    var galleryImages = $('.venta-detalle__image-gallery__image img')
+    var mainImage = $('.venta-detalle__main-image img');
+
+    function imagesInit() {
+        var firstImage = $(galleryImages).first().attr('src');
+
+        mainImage.attr('src', firstImage);
+    }
+
+    galleryImages.on('click', function() {
+        var clickedImage = $(this).attr('src');
+
+        mainImage.attr('src', clickedImage);
+    })
+
+    imagesInit();
+
+    console.log(galleryImages);
+
+    tabs.first().addClass('-active');
+
+    tabs.on('click', function() {
+        tabs.removeClass('-active');
+        $(this).addClass('-active');
+    });
+
 };
 
 module.exports = Header;

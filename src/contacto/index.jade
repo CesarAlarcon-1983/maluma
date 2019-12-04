@@ -1,0 +1,100 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+block content
+  main.contacto
+    section.contacto__hero
+      .container
+        .row
+          .col-24
+            h2.contacto__hero__title ¿Buscando tu proximo hogar? Encotralo en Maluma
+            p.contacto__hero__text ¡Tenemos más de 350 propiedades online para vos!
+    section.contacto__mensaje
+      .container
+        .row
+          .col-24
+            h2.contacto__mensaje__title envíenos un mensaje
+          .col-24.col-md-8
+            .contacto__mensaje__group
+              i.fa.fa-map-marker
+              p Cosquín 86. C.P. C1408GIB<br>Ciudad de Buenos Aires, Argentina.
+          .col-24.col-md-8
+            .contacto__mensaje__group
+              i.fa.fa-mobile
+              p 4641-4702 / 4641-4246 / 4644-0337
+          .col-24.col-md-8
+            .contacto__mensaje__group
+              i.fa.fa-envelope-o
+              a(href="mailto:malumapropiedades@gmail.com" target="_blank") malumapropiedades@gmail.com
+          .col-24
+            form.contacto__mensaje__form
+              .row
+                .col-24.col-md-8
+                  .contacto__mensaje__form-group
+                    input.contacto__mensaje__form-input(placeholder="Nombre")
+          
+                .col-24.col-md-8
+                  .contacto__mensaje__form-group
+                    input.contacto__mensaje__form-input(placeholder="Teléfono")
+
+                .col-24.col-md-8
+                  .contacto__mensaje__form-group
+                    input.contacto__mensaje__form-input(placeholder="Email")
+
+                .col-24
+                  .contacto__mensaje__form-group
+                    input.contacto__mensaje__form-input(placeholder="Nombre de la propiedad")
+
+                .col-24.col-md-6
+                  .contacto__mensaje__form-group.contacto__mensaje__form-group--select
+                    label.contacto__mensaje__form-label Deseo ser llamado
+                    select.contacto__mensaje__form-select
+                      option option 1
+                      option option 2
+                      option option 3
+                      option option 4
+                      option option 5
+
+                .col-24.col-md-6
+                  .contacto__mensaje__form-group.contacto__mensaje__form-group--select-labeless
+                    select.contacto__mensaje__form-select
+                      option option 1
+                      option option 2
+                      option option 3
+                      option option 4
+                      option option 5
+
+                .col-24.col-md-6
+                  .contacto__mensaje__form-group.contacto__mensaje__form-group--select
+                    label.contacto__mensaje__form-label Día de visita
+                    select.contacto__mensaje__form-select
+                      option option 1
+                      option option 2
+                      option option 3
+                      option option 4
+                      option option 5
+
+                .col-24.col-md-6
+                  .contacto__mensaje__form-group.contacto__mensaje__form-group--select
+                    label.contacto__mensaje__form-label Hora de visita
+                    select.contacto__mensaje__form-select
+                      option option 1
+                      option option 2
+                      option option 3
+                      option option 4
+                      option option 5
+
+                .col-24
+                  .contacto__mensaje__form-group
+                    input.contacto__mensaje__form-input(placeholder="Asunto")
+
+                .col-24
+                  .contacto__mensaje__form-group.contacto__mensaje__form-group--textarea
+                    textarea.contacto__mensaje__form-input(placeholder="Mensaje")
+
+                .col-24
+                  .contacto__mensaje__form-group
+                    button.contacto__mensaje__form-button(type="submit") enviar

@@ -1,16 +1,169 @@
 .header {
 
     $h: &;
+    height: 10vh;
+    
+    @include mq(md) {
+        height: 20vh;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        height: 10vh;
+        align-items: center;
+        
+        @include mq(md) {
+            padding: 6vh 0 4vh 0;
+            height: 20vh;
+
+        }
+    }
+
+    &__logo {
+        height: 5vh;
+        z-index: 2000;
+
+        @include mq(md) {
+            height: 10vh;
+            width: auto;
+        }
+
+        img {
+            height: 100%;
+            width: auto;
+
+            @include mq(md) {
+            }
+        }
+
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: flex-end;
+        width: 65%;
+        align-items: center;
+
+        @include mq(md) {
+            align-items: flex-end;
+            flex-direction: column;
+        }
+    }
+
+    &__social {
+        display: flex;
+        z-index: 2000;
+
+        @include mq(md) {
+            padding-bottom: 20px;
+        }
+    }
+
+    &__social-item {
+        margin-left: 20px;
+        
+        @include mq(md) {
+            margin-left: 40px;
+        }
+
+        a {
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+        
+        i {
+            @include trans;
+            color: $blue;
+            font-size: 24px;
+
+            @include mq(md) {
+                font-size: 30px;
+            }
+        }
+
+        &:hover {
+            i {
+                color: $linkHover;
+            }
+        }
+    }
+
+    &__list {
+        @include trans;
+
+        list-style: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        transform: translateX(-100%);
+        background: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1000;
+
+        @include mq(md) {
+            position: static;
+            display: flex;
+            flex-direction: row;
+            left: auto;
+            top: auto;
+            width: auto;
+            height: auto;
+            transform: translateX(0);
+        }
+    }
+
+    &__item {
+        @include trans;
+
+        cursor: pointer;
+        
+        &:not(:last-child) {
+            margin-bottom: 20px;
+            
+            @include mq(md) {
+                margin-bottom: 0;
+            }
+        }
+        @include mq(md) {
+            margin-left: 40px;
+        }
+        
+        &:hover {
+            a {
+                color: $blue;
+            }
+        }
+        
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $corpBlack;
+            font-size: 20px;
+            font-weight: 900;
+
+            @include mq(md) {
+                font-size: 14px;
+            }
+        }
+    }
 
     &__hamburguer {
         cursor: pointer;
         width: 25px;
-        height: 25px;
-        margin: auto;
-        position: absolute;
-        right: 32px;
-        top: 30px;
+        margin-left: 20px;
+        z-index: 1000;
 
+        @include mq(md) {
+            display: none;
+        }
+        
         span {
             background-color: $mainColor;
             border-radius: 2px;
@@ -48,8 +201,8 @@
             }
         }
 
-        #{$h}__nav {
-
+        #{$h}__list {
+            transform: translateX(0);
         }
     }
 }
