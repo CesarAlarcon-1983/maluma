@@ -10,6 +10,7 @@ var Header = require('../_modules/header/header');
 var Slider = require('../_modules/slider/slider');
 var Multirange = require('../_modules/multirange/multirange');
 var Price = require('../_modules/multirange/price');
+var Properties = require('./properties');
 
 $(function() {
 
@@ -17,4 +18,5 @@ $(function() {
     new Slider();
     new Multirange();
     new Price();
+    new Properties();
 });

@@ -13,6 +13,16 @@ var Slider = function() {
             });
         });
     }
+
+    var arrows = $('.slick-arrow');
+
+    arrows.on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        console.log(e);
+    })
+    console.log(arrows);
 };
 
 module.exports = Slider;
