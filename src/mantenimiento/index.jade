@@ -1,0 +1,26 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+block content
+  main.mantenimiento
+    .mantenimiento__logo
+      img(src="/images/logo.png")
+    h2.mantenimiento__text Sitio en mantenimiento
+
+    .mantenimiento__container
+      .mantenimiento__group
+          .mantenimiento__address
+              i.fa.fa-map-marker
+              p.mantenimiento__group-text Cosquín 86. C.P. C1408GIB<br>Ciudad de Buenos Aires<br>Argentina.
+          .mantenimiento__phones
+              i.fa.fa-mobile
+              .mantenimiento__group-wrapper
+                  a.mantenimiento__group-text(href="tel:4641-4702") 4641-4702
+                  a.mantenimiento__group-text(href="tel:4641-4246") 4641-4246
+                  a.mantenimiento__group-text(href="tel:4644-0337") 4644-0337
+          .mantenimiento__mail
+              i.fa.fa-envelope-o
+              a.mantenimiento__group-text(href="mailto:malumapropiedades@gmail.com" target="_blank") malumapropiedades@gmail.com

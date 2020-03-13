@@ -31,33 +31,28 @@ var Header = function() {
     });
 
     //venta-detalle tabs & images functionallity
-    var ventaDetalleTabs = $('.venta-detalle__details__tab');
-    var galleryImages = $('.venta-detalle__image-gallery__image img')
-    var mainImage = $('.venta-detalle__main-image img');
+    var targets = $('[data-target]');
+    var contents = $('[data-content]');
 
-    function imagesInit() {
-        var firstImage = $(galleryImages).first().attr('src');
+    var rowContainer = $('.propiedad-detalle__details__row-container');
+    var detailsWrapper = $('.propiedad-detalle__details__wrapper');
 
-        mainImage.attr('src', firstImage);
-    }
+    rowContainer.height(detailsWrapper.height() + 60);
 
-    galleryImages.on('click', function() {
-        var clickedImage = $(this).attr('src');
+    targets.first().addClass('-active');
+    contents.first().addClass('-active');
 
-        mainImage.attr('src', clickedImage);
-    })
+    targets.on('click', function() {
+        targets.removeClass('-active');
+        contents.removeClass('-active');
 
-    imagesInit();
+        var targettedContent = $(this).data("target");
 
-    console.log(galleryImages);
-
-    ventaDetalleTabs.first().addClass('-active');
-
-    ventaDetalleTabs.on('click', function() {
-    ventaDetalleTabs.removeClass('-active');
+        contents.filter('[data-content=' + targettedContent + ']').addClass('-active');
         $(this).addClass('-active');
-    });
 
+        rowContainer.height(contents.filter('[data-content=' + targettedContent + ']').height() + 60);
+    });
 };
 
 module.exports = Header;

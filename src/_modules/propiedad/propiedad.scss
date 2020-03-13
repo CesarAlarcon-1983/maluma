@@ -106,12 +106,18 @@
         img {
             height: 20px;
             width: auto;
-            margin-right: 10px;
+            margin-right: 5px;
         }
 
         span {
             font-size: 12px;
             color: $midGray;
+            text-transform: lowercase;
+        }
+
+        i {
+            margin-right: 5px;
+            color: $darkGray;
         }
     }
 

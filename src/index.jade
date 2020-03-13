@@ -1,8 +1,11 @@
 extends _layouts/base
 
 include ./_modules/propiedad/propiedad
+include ./_modules/loading-screen/loading-screen
 
 block content
+    +loading-screen
+
     main.home
         a.home__group(href="/tasaciones")
             p tasaciones online
@@ -61,10 +64,13 @@ block content
                                     button.home__search__button Buscar Propiedad
                     .col-24
                         h3.home__search__title oportunidades
-                    each propiedad in site.data.propiedades 
-                        .col-24.col-md-8
-                            .home__search__propiedad
-                                +propiedad(propiedad)
+                .row.propiedades__container
+
+                        
+                    //- each propiedad in site.data.propiedades 
+                        //- .col-24.col-md-8
+                        //-     .home__search__propiedad
+                        //-         +propiedad(propiedad)
 
         section.home__emprendimiento
             .container

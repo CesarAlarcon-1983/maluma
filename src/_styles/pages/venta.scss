@@ -1,4 +1,5 @@
-.venta {
+.venta,
+.alquiler {
     overflow: hidden;
     padding-top: 50px;
 
@@ -47,19 +48,18 @@
                 background: $lightGray;
                 flex-direction: row;
                 width: 50px;
-                padding: 5px 0 5px 0;
+                // padding: 5px 0 5px 0;
 
                 @include mq(md) {
-                    padding: 5px 20px 5px 0;
+                    // padding: 5px 20px 5px 0;
                     width: 85%;
                 }
             }
         }
 
-
         &__filter-icon {
             width: 50px;
-            height: 100%;
+            height: calc(100% - 10px);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -68,7 +68,6 @@
             outline: none;
             
             @include mq(md) {
-                padding: 5px 0;
                 border-right: 1px solid $darkGray;
             }
 
@@ -135,10 +134,119 @@
             font-size: 14px;
             width: 100%;
             margin-bottom: 20px;
+            text-align-last:center;
 
             @include mq(md) {
                 width: auto;
                 margin-bottom: 0;
+            }
+        }
+
+        &__price {
+            position: relative;
+            width: 25%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            input[type=range] {
+                -webkit-appearance: none;
+            }
+
+            input[type=range]::-webkit-slider-thumb {
+                -webkit-appearance: none;
+            }
+
+            input[type=range]:focus {
+                outline: none;
+            }
+        }
+
+        &__price-range {
+            @include mq(sm) {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            &__bar-wrapper {
+                position: absolute;
+                left: -10px;
+                right: -10px;
+            }
+
+            &__bar {
+                &.original {
+                    width: 100%;
+
+                    &::-webkit-slider-runnable-track {
+                        height: 5px;
+                        background: $blue;
+                    }
+                }
+
+                &.ghost {
+                    width: 100%;
+
+                    // &::-webkit-slider-runnable-track {
+                    //     height: 6px;
+                    // }
+                }
+
+                &::-webkit-slider-thumb {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 100%;
+                    background: $white;
+                    cursor: pointer;
+                    margin-top: -10px;
+                    box-shadow: 1px 2px 2px $midGray;
+                }
+
+                &::-webkit-slider-runnable-track {
+                    height: 5px;
+                    background: $lightGray;
+                }
+            }
+
+            &__label {
+                position: absolute;
+                top: -30px;
+                width: 0;
+                display: flex;
+                justify-content: center;
+
+                span {
+                    position: absolute;
+                    display: inline-block;
+                    height: 25px;
+                    line-height: 25px;
+                    padding: 0 5px;
+                    background: $white;
+                    color: $black;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    font-size: 12px;
+
+                    &:before {
+                        content: '';
+                        left:50%;
+                        transform: translateX(-50%);
+                        width: 5px;
+                        height: 5px;
+                        position: absolute;
+                        top: 100%;
+                        border-top: 5px solid $white;
+                        border-left: 5px solid transparent;
+                        border-right: 5px solid transparent;
+                    }
+                }
+            }
+
+            &__price  {
+                display: flex;
+                width: 45%;
             }
         }
 
@@ -156,7 +264,8 @@
         &__radiobox-title {
             color: $darkestGray;
             font-size: 14px;
-            font-weight: 900;
+            font-family: sans-serif;
+            font-weight: 700;
             margin-right: 10px;
         }
 
@@ -242,8 +351,19 @@
 
 
     &__propiedades {
+        &__propiedad {
+            margin-bottom: 40px;
+        }
+
         &__container {
             margin-bottom: 40px;
+        }
+
+        &__text {
+            font-weight: 900;
+            text-align: center;
+            margin: 0;
+            margin-bottom: 100px;
         }
     }
 }

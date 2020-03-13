@@ -5,8 +5,12 @@ block config
   - var baseUrl = '../';
 
 include ../_modules/propiedad/propiedad
+include ../_modules/pagination/pagination
+include ../_modules/loading-screen/loading-screen
 
 block content
+  +loading-screen
+
   main.venta
     .container
       .row
@@ -27,61 +31,66 @@ block content
                 button.venta__filtros__filter-icon
                   i.fa.fa-filter
                 .venta__filtros__options
-                  select.venta__filtros__select
-                    option Tipo de inmueble
-                    option tipo 1
-                    option tipo 2
-                    option tipo 3
-                    option tipo 4
-                    option tipo 5
+                  select.venta__filtros__select.-js-inmueble
+                    option(selected disabled hidden) Tipo de inmueble
 
-                  select.venta__filtros__select
-                    option Operación
-                    option Operación 1
-                    option Operación 2
-                    option Operación 3
-                    option Operación 4
-                    option Operación 5
+                  //- select.venta__filtros__select
+                  //-   option Operación
+                  //-   option Venta
+                  //-   option Alquiler
+                  //-   option Operación 3
+                  //-   option Operación 4
+                  //-   option Operación 5
 
-                  select.venta__filtros__select
-                    option Barrio
-                    option Barrio 1
-                    option Barrio 2
-                    option Barrio 3
-                    option Barrio 4
-                    option Barrio 5
+                  select.venta__filtros__select.-js-barrios
+                    option(selected disabled hidden) Barrio
+                    //- option Barrio 1
+                    //- option Barrio 2
+                    //- option Barrio 3
+                    //- option Barrio 4
+                    //- option Barrio 5
 
-                  select.venta__filtros__select
-                    option Ambientes
-                    option 1
-                    option 2
-                    option 3
-                    option 4
-                    option 5 
+                  select.venta__filtros__select.-js-ambientes
+                    option(selected disabled hidden) Ambientes
+                    option 1 Ambiente
+                    option 2 Ambientes
+                    option 3 Ambientes
+                    option 4+ Ambientes
 
-                  .venta__filtros__radiobox
-                    .venta__filtros__radiobox-title Cochera
-                    .venta__filtros__radiobox-group
-                      input.venta__filtros__radiobox-input(type="radio" id="radio1" name="radio")
-                      label.venta__filtros__radiobox-label(for="radio1") Si
-                    .venta__filtros__radiobox-group
-                      input.venta__filtros__radiobox-input(type="radio" id="radio2" name="radio")
-                      label.venta__filtros__radiobox-label(for="radio2") No
+                  .venta__filtros__price
+                      label.venta__filtros__price-range__label.js-range-price-low
+                      label.venta__filtros__price-range__label.js-range-price-high
+                      .venta__filtros__price-range__bar-wrapper
+                          input.venta__filtros__price-range__bar.js-range-price(type='range', multiple, value="0", step="10000" min="0", max="1500000")
+                          input(type="hidden", name="from-price", id="inputPriceFrom").-js-minimo
+                          input(type="hidden", name="to-price", id="inputPriceTo").-js-maximo
 
-                  select.venta__filtros__select
-                    option Amenities
-                    option Amenitie 1
-                    option Amenitie 2
-                    option Amenitie 3
-                    option Amenitie 4
-                    option Amenitie 5 
+                  //- .venta__filtros__radiobox
+                  //-   .venta__filtros__radiobox-title Cochera
+                  //-   .venta__filtros__radiobox-group
+                  //-     input.venta__filtros__radiobox-input(type="radio" id="radio1" name="radio")
+                  //-     label.venta__filtros__radiobox-label(for="radio1") Si
+                  //-   .venta__filtros__radiobox-group
+                  //-     input.venta__filtros__radiobox-input(type="radio" id="radio2" name="radio")
+                  //-     label.venta__filtros__radiobox-label(for="radio2") No
 
-                  button.venta__filtros__button Aplicar filtros
+                  //- select.venta__filtros__select.-js-amenities
+                  //-   option(selected disabled hidden) Amenities
+                  //-   option Parrilla
+                  //-   option Pileta
+                  //-   option Quincho
+                  //-   option Sala de juegos
+                  //-   option Patio
+                  //-   option Gimnasio
+                  //-   option Jardin
+                  //-   option SUM
+                  //-   option Terraza
+
+                  button.venta__filtros__button.-js-filtros-submit Aplicar filtros
     section.venta__propiedades
       .container
-        .row
-          each propiedad in site.data.propiedades
-            .col-24.col-md-8
-              .venta__propiedades__container
-                +propiedad(propiedad)
+        .row.venta__propiedades__container
 
+        .row
+          .col-24
+            +pagination

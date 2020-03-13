@@ -1,4 +1,29 @@
-mixin slider(klass)
-    ._slider(class=klass)
-        if block
-            block
+mixin slider(klass, mode)
+    if mode == 'multi'
+        ._slidermulti(class=klass)
+            if block
+                block
+    if mode == 'normal'
+        ._slider(class=klass)
+            if block
+                block
+
+    if mode == 'alt'
+        ._slider-alt(class=klass)
+            if block
+                block
+
+    if mode == 'all'
+        ._slider-all(class=klass)
+            if block
+                block
+
+    if mode == 'fourSlides'
+        ._slider-fourslides(class=klass)
+            if block
+                block
+
+    if mode == 'thumbnails'
+        ._slider-thumbnail(class=klass)
+            if block
+                block

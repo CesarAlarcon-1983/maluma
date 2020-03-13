@@ -4,158 +4,125 @@ block config
   //- Correct base url pathing for this page
   - var baseUrl = '../';
 
+include ../_modules/loading-screen/loading-screen
+include ../_modules/slider/slider
+
 block content
-  main.venta-detalle
+  +loading-screen
+
+  main.propiedad-detalle.-js-propiedad-detalle
     .container
       .row
         .col-24.col-md-14
           .row
             .col-24
-              .venta-detalle__heading
-                .venta-detalle__heading__group
-                  span.venta-detalle__heading__type Venta
-                  p.venta-detalle__heading__type-description Casa en Venta Capital Federal Velez Sarsfield
-                .venta-detalle__heading__group
-                  p.venta-detalle__heading__address JUAN F. ARANGUREN AL 4800
-                .venta-detalle__heading__group
-                  .venta-detalle__heading__details-group
-                    .venta-detalle__heading__details-image
-                      img(src="https://picsum.photos/id/237/300/300")
-                    span 417.00m2
-                  .venta-detalle__heading__details-group
-                    .venta-detalle__heading__details-image
-                      img(src="https://picsum.photos/id/237/300/300")
-                    span 5 AMBIENTES
-                  .venta-detalle__heading__details-group
-                    .venta-detalle__heading__details-image
-                      img(src="https://picsum.photos/id/237/300/300")
-                    span 2 baños
+              .propiedad-detalle__heading
+                .propiedad-detalle__heading__group
+                  span.propiedad-detalle__heading__type.-js-type
+                  p.propiedad-detalle__heading__type-description.-js-description
+                .propiedad-detalle__heading__group
+                  p.propiedad-detalle__heading__address.-js-address
+                .propiedad-detalle__heading__group
+                  .propiedad-detalle__heading__details-group
+                    .propiedad-detalle__heading__details-image
+                      img(src="/images/square-meter-icon.png")
+                    span.-js-size
+                    span m2
+                  .propiedad-detalle__heading__details-group
+                    .propiedad-detalle__heading__details-image
+                      i.fa.fa-bed
+                    span.-js-rooms
+                  .propiedad-detalle__heading__details-group
+                    .propiedad-detalle__heading__details-image
+                      i.fa.fa-bath
+                    span.-js-bathrooms
+                    span &nbsp;baños
 
             .col-24
-              .venta-detalle__main-image
-                img(src="")
-
-            .col-24
-              .venta-detalle__image-gallery
-                .venta-detalle__image-gallery__image
-                  img(src="https://picsum.photos/id/237/300/300")
-                .venta-detalle__image-gallery__image
-                  img(src="https://picsum.photos/id/238/300/300")
-                .venta-detalle__image-gallery__image
-                  img(src="https://picsum.photos/id/239/300/300")
+              .propiedad-detalle__main-image
 
         .col-24.col-md-10
           .row
             .col-24
-              .venta-detalle__heading.venta-detalle__heading--price
-                span.venta-detalle__heading__price U$S 530.000
+              .propiedad-detalle__heading.propiedad-detalle__heading--price
+                span.propiedad-detalle__heading__price.-js-price
             .col-24
-              .venta-detalle__form-container
-                form.venta-detalle__form
-                  h4.venta-detalle__form__title contacto
-                  .venta-detalle__form__group
-                    input.venta-detalle__form__input(placeholder="Nombre")
-                    input.venta-detalle__form__input(placeholder="Email")
-                    input.venta-detalle__form__input(placeholder="Teléfono")
-                    textarea.venta-detalle__form__input.venta-detalle__form__input--textarea
-                    button.venta-detalle__form__button Enviar
+              .propiedad-detalle__form-container
+                form.propiedad-detalle__form
+                  h4.propiedad-detalle__form__title contacto
+                  .propiedad-detalle__form__group
+                    input.propiedad-detalle__form__input(placeholder="Nombre*" required).-js-property-contact-nombre
+                    .propiedad-detalle__form__wrapper
+                      label.propiedad-detalle__form__error Direccion de e-mail incorrecta
+                      input.propiedad-detalle__form__input(placeholder="Email*" required).-js-property-contact-mail
+                    input.propiedad-detalle__form__input(placeholder="Teléfono*" required).-js-property-contact-telefono
+                    textarea(placeholder="Mensaje*" required).propiedad-detalle__form__input.propiedad-detalle__form__input--textarea.-js-property-contact-mensaje
+                    p.propiedad-detalle__form__required *Todos los campos son requieridos
+                    button.propiedad-detalle__form__button.-js-property-contact-submit-button(disabled) Enviar
 
-            .col-24
-              .venta-detalle__social-container
-                ul.venta-detalle__social
-                  li.venta-detalle__item
-                    a(href="#")
-                      i.fa.fa-facebook
+        .col-24
+          .propiedad-detalle__social-container
+            ul.propiedad-detalle__social
+              li.propiedad-detalle__item
+                a(href="#")
+                  i.fa.fa-facebook
 
-                  li.venta-detalle__item
-                    a(href="#")
-                      i.fa.fa-whatsapp
-                  li.venta-detalle__item
-                    a(href="#")
-                      i.fa.fa-instagram
-                  li.venta-detalle__item
-                    a(href="#")
-                      i.fa.fa-envelope
-                  li.venta-detalle__item
-                    a(href="#")
-                      i.fa.fa-print
+              li.propiedad-detalle__item
+                a(href="#")
+                  i.fa.fa-whatsapp
+              li.propiedad-detalle__item
+                a(href="#")
+                  i.fa.fa-instagram
+              li.propiedad-detalle__item
+                a(href="#")
+                  i.fa.fa-envelope
+              li.propiedad-detalle__item
+                a(href="#")
+                  i.fa.fa-print
 
         .col-24.col-md-14
           .row
             .col-24
-              .venta-detalle__description
-                h3.venta-detalle__description__title descripción
-                p.venta-detalle__description__text Venta de Casa 5 AMBIENTES en Velez Sarsfield, Capital Federal.
-                p.venta-detalle__description__text Al ingresar a la propiedad nos encontramos con un jardín de entrada, un amplio living, luego una cocina comedor con muebles sobre y bajo mesada, toillete de recepción, un parque, pileta en fibra de vidrio y quincho con dependencia. Y sobre la planta alta se encuentran 1 dormitorio en suite con placard y 3 dormitorios con placard y baño completo.
+              .propiedad-detalle__description
+                h3.propiedad-detalle__description__title descripción
+                p.propiedad-detalle__description__text.-js-full-description
 
             .col-24
-              .venta-detalle__details
-                .venta-detalle__details__heading
-                  button.venta-detalle__details__tab detalles
-                  button.venta-detalle__details__tab caracteristicas
-                  button.venta-detalle__details__tab medidas
+              .row.propiedad-detalle__details__row-container
+                .col-24
+                  .propiedad-detalle__details
+                    .propiedad-detalle__details__heading
+                      button.propiedad-detalle__details__tab(data-target="detalles") detalles
+                      button.propiedad-detalle__details__tab(data-target="caracteristicas") caracteristicas
+                      button.propiedad-detalle__details__tab(data-target="medidas") medidas
+                .col-24.propiedad-detalle__details__content(data-content="detalles")
+                  .propiedad-detalle__details__wrapper
+                    .row.propiedad-detalle__details__container.-js-detalles-container
 
-                .venta-detalle__details__content
-                  .venta-detalle__details__wrapper
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Operación
-                      p.venta-detalle__details__group-text Venta
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Localidad
-                      p.venta-detalle__details__group-text Capital Federal
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Barrio
-                      p.venta-detalle__details__group-text Velez Sarsfield
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Dirección
-                      p.venta-detalle__details__group-text Juan F. Aranguren al 4800
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Ambientes
-                      p.venta-detalle__details__group-text 5 ambientes
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Atigüedad
-                      p.venta-detalle__details__group-text 27 años
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Pisos
-                      p.venta-detalle__details__group-text 2
+                .col-24.propiedad-detalle__details__content(data-content="caracteristicas")
+                  .propiedad-detalle__details__wrapper
+                    .row.propiedad-detalle__details__container.-js-caracteristicas-container
 
-                  .venta-detalle__details__wrapper.venta-detalle__details__wrapper--right
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Agua caliente
-                      p.venta-detalle__details__group-text Termotanque
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Gas
-                      p.venta-detalle__details__group-text Natural
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Calefacción
-                      p.venta-detalle__details__group-text Tiro balanceado
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Baños
-                      p.venta-detalle__details__group-text 2
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Estado
-                      p.venta-detalle__details__group-text Muy bueno
-                    .venta-detalle__details__group
-                      h3.venta-detalle__details__group-title Cocheras
-                      p.venta-detalle__details__group-text 2
-                    .venta-detalle__details__group
+                .col-24.propiedad-detalle__details__content(data-content="medidas")
+                  .propiedad-detalle__details__wrapper
+                    .row.propiedad-detalle__details__container.-js-medidas-container
 
         .col-24.col-md-10
-          .venta-detalle__others
-            h3.venta-detalle__others__title Otras propiedades en venta
-            .venta-detalle__others__image
-              img(src="https://picsum.photos/id/239/300/300")
-            .venta-detalle__others__image
-              img(src="https://picsum.photos/id/238/300/300")
-            .venta-detalle__others__image
-              img(src="https://picsum.photos/id/237/300/300")
-            .venta-detalle__others__image
-              img(src="https://picsum.photos/id/236/300/300")
-            .venta-detalle__others__image
-              img(src="https://picsum.photos/id/235/300/300")
-            .venta-detalle__others__image
-              img(src="https://picsum.photos/id/234/300/300")
-            .venta-detalle__others__image
-              img(src="https://picsum.photos/id/233/300/300")
-            .venta-detalle__others__image
-              img(src="https://picsum.photos/id/232/300/300")
+          .propiedad-detalle__others.-js-other-properties
+            h3.propiedad-detalle__others__title Otras propiedades en venta
+            //- .propiedad-detalle__others__image
+            //-   img(src="https://picsum.photos/id/239/300/300")
+            //- .propiedad-detalle__others__image
+            //-   img(src="https://picsum.photos/id/238/300/300")
+            //- .propiedad-detalle__others__image
+            //-   img(src="https://picsum.photos/id/237/300/300")
+            //- .propiedad-detalle__others__image
+            //-   img(src="https://picsum.photos/id/236/300/300")
+            //- .propiedad-detalle__others__image
+            //-   img(src="https://picsum.photos/id/235/300/300")
+            //- .propiedad-detalle__others__image
+            //-   img(src="https://picsum.photos/id/234/300/300")
+            //- .propiedad-detalle__others__image
+            //-   img(src="https://picsum.photos/id/233/300/300")
+            //- .propiedad-detalle__others__image
+            //-   img(src="https://picsum.photos/id/232/300/300")

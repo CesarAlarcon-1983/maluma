@@ -34,24 +34,25 @@ block content
               .row
                 .col-24.col-md-8
                   .contacto__mensaje__form-group
-                    input.contacto__mensaje__form-input(placeholder="Nombre")
-          
-                .col-24.col-md-8
-                  .contacto__mensaje__form-group
-                    input.contacto__mensaje__form-input(placeholder="Teléfono")
+                    input.contacto__mensaje__form-input.-js-contact-input(placeholder="Nombre*" name="nombre")
 
                 .col-24.col-md-8
                   .contacto__mensaje__form-group
-                    input.contacto__mensaje__form-input(placeholder="Email")
+                    input.contacto__mensaje__form-input.-js-contact-input(placeholder="Teléfono*" name="telefono")
+
+                .col-24.col-md-8
+                  .contacto__mensaje__form-group
+                    label.contacto__mensaje__form-error Direccion de e-mail incorrecta
+                    input.contacto__mensaje__form-input.-js-contact-input(placeholder="Email*" name="mail")
 
                 .col-24
                   .contacto__mensaje__form-group
-                    input.contacto__mensaje__form-input(placeholder="Nombre de la propiedad")
+                    input.contacto__mensaje__form-input.-js-contact-input(placeholder="Nombre de la propiedad*" name="propiedad")
 
                 .col-24.col-md-6
                   .contacto__mensaje__form-group.contacto__mensaje__form-group--select
-                    label.contacto__mensaje__form-label Deseo ser llamado desde:
-                    select.contacto__mensaje__form-select
+                    label.contacto__mensaje__form-label Deseo ser llamado desde:*
+                    select.contacto__mensaje__form-select.-js-contact-input(name="hora-min")
                       option(selected hidden disabled) Selecciona una hora
                       option 8 AM
                       option 9 AM
@@ -61,7 +62,7 @@ block content
 
                 .col-24.col-md-6
                   .contacto__mensaje__form-group.contacto__mensaje__form-group--select-labeless
-                    select.contacto__mensaje__form-select
+                    select.contacto__mensaje__form-select.-js-contact-input(name="hora-max")
                       option(selected hidden disabled) Selecciona una hora
                       option 2 PM
                       option 3 PM
@@ -71,13 +72,13 @@ block content
 
                 .col-24.col-md-6
                   .contacto__mensaje__form-group.contacto__mensaje__form-group--select
-                    label.contacto__mensaje__form-label Día de visita
-                    input.contacto__mensaje__form-date(type="date")
+                    label.contacto__mensaje__form-label Día de visita*
+                    input.contacto__mensaje__form-date.-js-contact-input(type="date" name="dia-visita")
 
                 .col-24.col-md-6
                   .contacto__mensaje__form-group.contacto__mensaje__form-group--select
-                    label.contacto__mensaje__form-label Hora de visita
-                    select.contacto__mensaje__form-select
+                    label.contacto__mensaje__form-label Hora de visita*
+                    select.contacto__mensaje__form-select.-js-contact-input(name="hora-visita")
                       option(selected hidden disabled) Selecciona una hora
                       option 8 AM
                       option 9 AM
@@ -87,12 +88,16 @@ block content
 
                 .col-24
                   .contacto__mensaje__form-group
-                    input.contacto__mensaje__form-input(placeholder="Asunto")
+                    input.contacto__mensaje__form-input.-js-contact-input(placeholder="Asunto*" name="asunto")
 
                 .col-24
                   .contacto__mensaje__form-group.contacto__mensaje__form-group--textarea
-                    textarea.contacto__mensaje__form-input(placeholder="Mensaje")
+                    textarea.contacto__mensaje__form-input.-js-contact-input(placeholder="Mensaje*" name="mensaje")
 
                 .col-24
                   .contacto__mensaje__form-group
-                    button.contacto__mensaje__form-button(type="submit") enviar
+                    p.contacto__mensaje__required *Todos los campos son requieridos
+
+                .col-24
+                  .contacto__mensaje__form-group
+                    button.contacto__mensaje__form-button(disabled) enviar
