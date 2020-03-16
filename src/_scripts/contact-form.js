@@ -15,6 +15,7 @@ var ContactForm = function() {
     var contactFormInputs = $('.-js-contact-input');
     var contactInputError = $('.contacto__mensaje__form-error');
     var contactFormButton = $('.contacto__mensaje__form-button');
+
     propertyFormInputs.on('change', function() {
         var isValid = validatePropertyForm();
 
@@ -66,10 +67,14 @@ var ContactForm = function() {
         var mail = propertyContactMail.val();
         var telefono = propertyContactTelefono.val();
         var mensaje = propertyContactMensaje.val();
+        var operacion = $('#propiedad-operacion').val();
+        var direccion = $('#propiedad-direccion').val();
+        var subject = `Consulta sobre propiedad en ${operacion} ubicada en ${direccion}`
 
         var data = {
             name: name,
             mail: mail,
+            subject: subject,
             telefono: telefono,
             mensaje: mensaje,
         }
@@ -85,6 +90,7 @@ var ContactForm = function() {
             data: {            
                 inputName: data.name,
                 inputEmail: data.mail,
+                subject: data.subject,
                 inputPhone: data.telefono,
                 message: data.mensaje
             }
@@ -105,26 +111,26 @@ var ContactForm = function() {
         sendPropertyConfirmByEmail(dataForMail);
     });
 
-    console.log($('[name=mail]').val());
-
     function validateContactForm()  {
         var validInputs = 0;
 
         for(var i = 0; i < contactFormInputs.length; i++) {
-            if($(contactFormInputs[i]).attr('name') === "mail") {
-                if(!validateEmail($('[name=mail]').val())) {
+            if($(contactFormInputs[i]).attr('name') !== "mail") {
+                if($(contactFormInputs[i]).val() !== "") {
+                    validInputs++;
+                } else {
+                    return false;
+                }
+            } else {
+                if($(contactFormInputs[i]).val() === "") {
+                    return false;
+                } else if(!validateEmail($('[name=mail]').val())) {
                     contactInputError.addClass('-show');
-                    return;
                 } else {
                     contactInputError.removeClass('-show');
                     validInputs++;
                 }
-            } else {
-                if($(contactFormInputs[i]).val() !== "") {
-                    validInputs++;
-                }
             }
-            
         }
 
         console.log(validInputs);
@@ -132,12 +138,14 @@ var ContactForm = function() {
         return validInputs === contactFormInputs.length;
     }
 
-    var contactData = {}
 
     function getContactFormData() {
+        var contactData = {};
+
         for(var i = 0; i < contactFormInputs.length; i++) {
-            contactData.push(`${$(contactFormInputs[i]).attr('name')}:${$(contactFormInputs[i]).val()}`);
+            contactData[$(contactFormInputs[i]).attr('name')] = $(contactFormInputs[i]).val();
         }
+
         return contactData;
     }
 
@@ -146,12 +154,7 @@ var ContactForm = function() {
             type: "POST",
             url: '/enviar.php',
             crossDomain: true,
-            data: {            
-                inputName: data.name,
-                inputEmail: data.mail,
-                inputPhone: data.telefono,
-                message: data.mensaje
-            }
+            data: data
         }).done(function(response) {
             console.log('success AJAX', response);
             // if(response === 'success') {
@@ -161,7 +164,7 @@ var ContactForm = function() {
         });
     }
 
-    contactFormInputs.on('change', function() {
+    contactFormInputs.on('focusout', function() {
         var isValid = validateContactForm();
 
         if(isValid) {
@@ -171,7 +174,7 @@ var ContactForm = function() {
         }
     })
 
-    propertyContactSubmitButton.on('click', function(e) {
+    contactFormButton.on('click', function(e) {
         e.preventDefault();
         var dataForMail = getContactFormData();
         console.log(dataForMail);

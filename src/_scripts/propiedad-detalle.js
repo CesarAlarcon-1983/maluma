@@ -23,7 +23,8 @@ var PropiedadDetalle = function() {
     var targets = $('[data-target]');
     var contents = $('[data-content]');
     var operacion = window.location.href.indexOf('venta-detalle') > 0 ? 'venta' : 'alquiler';
-
+    var direccionInput = $('#propiedad-direccion');
+    var operacionInput = $('#propiedad-operacion');
 
     $.when(
       Properties.get(url)
@@ -47,6 +48,9 @@ var PropiedadDetalle = function() {
 
       caracteristicasContainer.append(caracteristicasHtmlStructure(dataPropiedades));
       medidasContainer.append(medidasHtmlStructure(dataPropiedades));
+
+      direccionInput.val(dataPropiedades.resultado.ficha[0].direccion);
+      operacionInput.val(operacion);
     });
 
     $.when(

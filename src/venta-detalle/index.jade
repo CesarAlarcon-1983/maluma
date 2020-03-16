@@ -51,13 +51,15 @@ block content
                 form.propiedad-detalle__form
                   h4.propiedad-detalle__form__title contacto
                   .propiedad-detalle__form__group
-                    input.propiedad-detalle__form__input(placeholder="Nombre*" required).-js-property-contact-nombre
+                    input.propiedad-detalle__form__input(placeholder="Nombre*").-js-property-contact-nombre
                     .propiedad-detalle__form__wrapper
-                      label.propiedad-detalle__form__error Direccion de e-mail incorrecta
-                      input.propiedad-detalle__form__input(placeholder="Email*" required).-js-property-contact-mail
-                    input.propiedad-detalle__form__input(placeholder="Teléfono*" required).-js-property-contact-telefono
-                    textarea(placeholder="Mensaje*" required).propiedad-detalle__form__input.propiedad-detalle__form__input--textarea.-js-property-contact-mensaje
+                      label.propiedad-detalle__form__error Direccion de e-mail no valida
+                      input.propiedad-detalle__form__input(placeholder="Email*").-js-property-contact-mail
+                    input.propiedad-detalle__form__input(placeholder="Teléfono*").-js-property-contact-telefono
+                    textarea(placeholder="Mensaje*").propiedad-detalle__form__input.propiedad-detalle__form__input--textarea.-js-property-contact-mensaje
                     p.propiedad-detalle__form__required *Todos los campos son requieridos
+                    input(type="hidden")#propiedad-direccion
+                    input(type="hidden")#propiedad-operacion
                     button.propiedad-detalle__form__button.-js-property-contact-submit-button(disabled) Enviar
 
         .col-24
