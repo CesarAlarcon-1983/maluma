@@ -38,19 +38,18 @@ block content
                                     label.home__search__tab-label(for="radio2") alquiler
                             .home__search__inputs
                                 .home__search__group
-                                    select.home__search__select
-                                        option Tipo
-                                        option Casa
-                                        option Departamento
+                                    select.home__search__select.-js-inmueble.-js-inmueble
+                                        option(hidden selected disabled) Tipo
+                                        //- option Casa
+                                        //- option Departamento
 
                                 .home__search__group
-                                    select.home__search__select
+                                    select.home__search__select.-js-ambientes
                                         option Dormitorios
                                         option 1
                                         option 2
                                         option 3
-                                        option 4
-                                        option 5
+                                        option 4+
 
                                 .home__search__group
                                     .home__search__price
@@ -58,13 +57,13 @@ block content
                                         label.home__search__price-range__label.js-range-price-high
                                         .home__search__price-range__bar-wrapper
                                             input.home__search__price-range__bar.js-range-price(type='range', multiple, value="0", step="10000" min="0", max="1500000")
-                                            input(type="hidden", name="from-price", id="inputPriceFrom")
-                                            input(type="hidden", name="to-price", id="inputPriceTo")
+                                            input(type="hidden", name="from-price", id="inputPriceFrom").-js-minimo
+                                            input(type="hidden", name="to-price", id="inputPriceTo").-js-maximo
                                 .home__search__group
-                                    button.home__search__button Buscar Propiedad
+                                    button.home__search__button.-js-filtros-submit Buscar Propiedad
                     .col-24
                         h3.home__search__title oportunidades
-                .row.propiedades__container
+                .row.-js-destacados-container
 
                         
                     //- each propiedad in site.data.propiedades 

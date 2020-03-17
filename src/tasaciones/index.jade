@@ -28,24 +28,25 @@ block content
                 .row
                   .col-24
                     .tasaciones__details__form-group
-                      input.tasaciones__details__form-input(placeholder="Nombre")
+                      input.tasaciones__details__form-input(placeholder="Nombre" name="nombre").-js-tasaciones-input
                   .col-24
                     .tasaciones__details__form-group
-                      input.tasaciones__details__form-input(placeholder="Teléfono")
+                      input.tasaciones__details__form-input(placeholder="Teléfono" name="telefono").-js-tasaciones-input
                   .col-24
                     .tasaciones__details__form-group
-                      input.tasaciones__details__form-input(placeholder="Email")
+                      label.tasaciones__details__form-error Direccion de e-mail no valida
+                      input.tasaciones__details__form-input(placeholder="Email" name="mail").-js-tasaciones-input
 
                   .col-24
                     .tasaciones__details__form-group
-                      input.tasaciones__details__form-input(placeholder="Nombre de la propiedad")
+                      input.tasaciones__details__form-input(placeholder="Nombre de la propiedad" name="propiedad").-js-tasaciones-input
                   .col-24
                     .tasaciones__details__form-group
-                      input.tasaciones__details__form-input(placeholder="Asunto")
+                      input.tasaciones__details__form-input(placeholder="Asunto" name="asunto").-js-tasaciones-input
                   .col-24
                     .tasaciones__details__form-group.tasaciones__details__form-group--textarea
-                      textarea.tasaciones__details__form-input(placeholder="Mensaje")
+                      textarea.tasaciones__details__form-input(placeholder="Mensaje" name="mensaje").-js-tasaciones-input
                   .col-24
                     .tasaciones__details__form-group
-                      button.tasaciones__details__form-button(type="submit") enviar
+                      button.tasaciones__details__form-button(disabled) enviar
                   

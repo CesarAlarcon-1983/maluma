@@ -157,7 +157,27 @@
             background: transparent;
         }
 
+        &__form-error {
+            @include trans;
+
+            color: $red;
+            font-size: 10px;
+            position: absolute;
+            left: 0;
+            top: 15px;
+            z-index: -1;
+            opacity: 0;
+            
+            &.-show {
+                top: -15px;
+                z-index: 1;
+                opacity: 1;
+            }
+        }
+
         &__form-button {
+            @include trans;
+
             width: 100%;
             height: 100%;
             background: $red;
@@ -168,13 +188,58 @@
             display: block;
             color: $white;
             text-transform: uppercase;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             outline: none;
+            opacity: 1;
+            pointer-events: all;
+            
+            &:disabled {
+                pointer-events: none;
+                opacity: .5;
+            }
 
             @include mq(md) {
-                width: 30%;
+                width: 40%;
             }
+        }
+
+        &__slider-container {
+            width: 100%;
+            box-shadow: 0 5px 20px rgba(0,0,0,.15);
+
+            .propiedad {
+                box-shadow: 0;
+
+                &:hover {
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        &__slider-title {
+            text-align: center;
+            color: $blue;
+            text-transform: capitalize;
+            font-size: 24px;
+            margin: 0;
+            margin-bottom: 40px;
+        }
+
+        .slick-arrow {
+            bottom: -70px;
+            top: auto;
+            transform: translateY(0);
+        }
+
+        .slick-prev {
+            left: 40%;
+            transform: translateX(-50%);
+        }
+
+        .slick-next {
+            left: 60%;
+            transform: translateX(-50%);
         }
     }
 }

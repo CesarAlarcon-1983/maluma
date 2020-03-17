@@ -5,13 +5,22 @@ var Properties = require('./properties');
 var Filtros = function() {
   var contextVenta = $('.venta');
   var contextAlquiler = $('.alquiler');
+  var contextHome = $('.home');
 
-  if (contextVenta.length > 0 || contextAlquiler.length > 0) {
-    var barrios = 'http://maluma.test/destacados.php?data=barrios&in_bar';
+  if (contextVenta.length > 0 || contextAlquiler.length > 0 || contextHome.length > 0) {
+    var barrios = '/propiedades.php?data=barrios&in_bar';
     var barriosData = {}
     var barriosContainer = $('.-js-barrios');
     var tipoInmuebleContainer = $('.-js-inmueble');
-    var operacion = window.location.href.indexOf('venta') > 0 ? 'venta' : 'alquiler';
+    var tipoOperacionInput = $('#radio1');
+
+    var operacion = function() {
+      if(window.location.href.indexOf('venta') > 0 || window.location.href.indexOf('alquiler') > 0) {
+        return (window.location.href.indexOf('venta') > 0 ? 'venta' : 'alquiler');
+      } else {
+        return (tipoOperacionInput.is(':checked') ? 'venta' : 'alquiler');
+      }
+    }
 
     $.when(
       Properties.get(barrios)
@@ -74,8 +83,8 @@ var Filtros = function() {
       
     filtersButton.on('click', function(e) {
       e.preventDefault();
-      // console.log();
-      window.location.href = `/${operacion}/?page=1${tipoInmueble.length > 0 ? "&tipo=" + tipoInmueble : ""}${barrio.length > 0 ? "&barrio=" + barrio : ""}${ambientes.length > 0 ? "&ambientes=" + ambientes : ""}&min=${valorMinimoSelect.val()}&max=${valorMaximoSelect.val()}`;
+      // console.log(operacion());
+      window.location.href = `/${operacion()}/?page=1${tipoInmueble.length > 0 ? "&tipo=" + tipoInmueble : ""}${barrio.length > 0 ? "&barrio=" + barrio : ""}${ambientes.length > 0 ? "&ambientes=" + ambientes : ""}&min=${valorMinimoSelect.val()}&max=${valorMaximoSelect.val()}`;
     })
   }
 }

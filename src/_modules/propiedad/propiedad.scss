@@ -50,6 +50,7 @@
         padding-bottom: 80%;
         overflow: hidden;
         position: relative;
+        background: $black;
         
         img {
             @include trans;
@@ -58,8 +59,8 @@
             top: 50%;
             left: 50%;
             transform: translate3d(-50%, -50%, 0);
-            width: auto;
-            height: 100%;
+            width: 100%;
+            height: auto;
         }
     }
 

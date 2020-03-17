@@ -19,7 +19,7 @@ var PropiedadDetalle = function() {
     var caracteristicasContainer = $('.-js-caracteristicas-container');
     var medidasContainer = $('.-js-medidas-container');
     var propertiesImagesContainer = $('.-js-other-properties');
-    var url = "http://maluma.test/destacados.php?data=propiedad&ficha=" + id;
+    var url = "/propiedades.php?data=propiedad&ficha=" + id;
     var targets = $('[data-target]');
     var contents = $('[data-content]');
     var operacion = window.location.href.indexOf('venta-detalle') > 0 ? 'venta' : 'alquiler';
@@ -54,7 +54,7 @@ var PropiedadDetalle = function() {
     });
 
     $.when(
-      Properties.get(`http://maluma.test/destacados.php?data=${operacion}&tipo_operacion=${operacion}&page=1`)
+      Properties.get(`/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=1`)
     ).done(function(data) {
       properties = JSON.parse(data);
       console.log('properties', properties);

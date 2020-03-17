@@ -3,8 +3,8 @@
 var Properties = require('./properties');
 
 // Constructor
-var Home = function() {
-  var context = $('.home');
+var QuienesSomos = function() {
+  var context = $('.quienes-somos');
   
   if(context.length > 0) {
     var destacados = {};
@@ -53,35 +53,36 @@ var Home = function() {
     };
 
     function generateDestacadosHtml(destacados) {
-      var propiedadesDestacadas = destacados.fichas.map(function(propiedad, index) {
-          return(
-            `<div class="col-24 col-md-8">
-              <div class="home__search__propiedad">
-                <a href="/${propiedad.operacion.toLowerCase()}-detalle/?id=${propiedad.in_num}" class="propiedad">
-                  <div class="_slider propiedad__slider">
-                    ${sliderImages(destacados, index)}
+      var propiedadesDestacadasSlides = destacados.fichas.map(function(propiedad, index) {
+          return(`
+            <a href="/${propiedad.operacion.toLowerCase()}-detalle/?id=${propiedad.in_num}" class="propiedad">
+              <div class="quienes-somos__details__slide">
+                ${sliderImages(destacados, index)}
+                <div class="propiedad__content">
+                  <div class="propiedad__content-group">
+                    <h4 class="propiedad__type">${propiedad.tipo}</h4>
+                    <h3 class="propiedad__address">${propiedad.direccion_completa}</h3>
                   </div>
-                  <div class="propiedad__content">
-                    <div class="propiedad__content-group">
-                      <h4 class="propiedad__type">${propiedad.tipo}</h4>
-                      <h3 class="propiedad__address">${propiedad.direccion_completa}</h3>
-                    </div>
-                    <div class="propiedad__group">
-                      <div class="propiedad__wrapper">
-                        <div class="propiedad__wrapper-group"><img src="/images/square-meter-icon.png"/><span>Sin Data</span></div>
-                        ${propiedad.ambientes !== "" ? `<div class="propiedad__wrapper-group"><i class="fa fa-bed"></i><span>${propiedad.ambientes}</span></div>`: ''}
-                        <div class="propiedad__wrapper-group"><i class="fa fa-bath"></i><span>Sin Data</span></div>
-                    </div>
-                      <div class="propiedad__price"><span>${propiedad.precio}</span></div>
-                    </div>
+                  <div class="propiedad__group">
+                    <div class="propiedad__wrapper">
+                      <div class="propiedad__wrapper-group"><img src="/images/square-meter-icon.png"/><span>Sin Data</span></div>
+                      ${propiedad.ambientes !== "" ? `<div class="propiedad__wrapper-group"><i class="fa fa-bed"></i><span>${propiedad.ambientes}</span></div>`: ''}
+                      <div class="propiedad__wrapper-group"><i class="fa fa-bath"></i><span>Sin Data</span></div>
                   </div>
-                </a>
+                    <div class="propiedad__price"><span>${propiedad.precio}</span></div>
+                  </div>
+                </div>
               </div>
-            </div>`
+            </a>
+          `
           );
       });
 
-      destacadosContainer.append(propiedadesDestacadas.slice(0,9));
+      var sliderContainer = $('<div class="_slider quienes-somos__details__slider">');
+
+      sliderContainer.append(propiedadesDestacadasSlides);
+
+      destacadosContainer.append(sliderContainer);
 
       var slider = $('._slider');
 
@@ -104,4 +105,4 @@ var Home = function() {
   }
 };
 
-module.exports = Home;
+module.exports = QuienesSomos;

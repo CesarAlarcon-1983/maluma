@@ -4,8 +4,9 @@ block config
   //- Correct base url pathing for this page
   - var baseUrl = '../';
 
-include ../_modules/slider/slider
 include ../_modules/propiedad/propiedad
+include ../_modules/loading-screen/loading-screen
+include ../_modules/slider/slider
 
 block content
   main.quienes-somos
@@ -36,9 +37,9 @@ block content
               p.quienes-somos__details__text <strong>La Dirección Comercial</strong>
               p.quienes-somos__details__text Matricula Colegio Inmobiliario 5977
           .col-24.col-md-10
-            .quienes-somos__details__slider-container
-              h3.quienes-somos__details__slider-title destacados
-              +slider('quienes-somos__details__slider')
-                each propiedad in site.data.propiedades
-                  .quienes-somos__details__slide
-                    +propiedad(propiedad)
+            h3.quienes-somos__details__slider-title destacados
+            .quienes-somos__details__slider-container.-js-destacados-container
+              //- +slider('quienes-somos__details__slider', 'normal')
+              //-   each propiedad in site.data.propiedades
+              //-     .quienes-somos__details__slide
+              //-       +propiedad(propiedad)

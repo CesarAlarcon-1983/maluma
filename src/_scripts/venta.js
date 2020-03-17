@@ -4,7 +4,7 @@ var Properties = require('./properties');
 var Pagination = require('./pagination');
 
 // Constructor
-var Venta = function(domain) {
+var Venta = function() {
   var context = $('.venta');
   
   if(context.length > 0) {
@@ -55,7 +55,7 @@ var Venta = function(domain) {
       }
     }
 
-    var fetchUrl = `${domain}/destacados.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}&${paramsConstructor(paramsInUrl)}`;
+    var fetchUrl = `/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}&${paramsConstructor(paramsInUrl)}`;
 
     $.when(
       Properties.get(fetchUrl)

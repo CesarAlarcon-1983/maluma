@@ -16,6 +16,12 @@ var ContactForm = function() {
     var contactInputError = $('.contacto__mensaje__form-error');
     var contactFormButton = $('.contacto__mensaje__form-button');
 
+    // Tasaciones input classes
+    var tasacionesFormInputs = $('.-js-tasaciones-input');
+    var tasacionesInputError = $('.tasaciones__details__form-error');
+    var tasacionesFormButton = $('.tasaciones__details__form-button');
+
+
     propertyFormInputs.on('change', function() {
         var isValid = validatePropertyForm();
 
@@ -181,6 +187,78 @@ var ContactForm = function() {
 
         sendContactConfirmByEmail(dataForMail);
     });
+
+    // Tasaciones Form Logic
+    function getTasacionesFormData() {
+        var contactData = {};
+
+        for(var i = 0; i < tasacionesFormInputs.length; i++) {
+            contactData[$(tasacionesFormInputs[i]).attr('name')] = $(tasacionesFormInputs[i]).val();
+        }
+
+        return contactData;
+    }
+
+    function validateTasacionesForm()  {
+        var validInputs = 0;
+
+        for(var i = 0; i < tasacionesFormInputs.length; i++) {
+            if($(tasacionesFormInputs[i]).attr('name') !== "mail") {
+                if($(tasacionesFormInputs[i]).val() !== "") {
+                    validInputs++;
+                } else {
+                    return false;
+                }
+            } else {
+                if($(tasacionesFormInputs[i]).val() === "") {
+                    return false;
+                } else if(!validateEmail($('[name=mail]').val())) {
+                    tasacionesInputError.addClass('-show');
+                } else {
+                    tasacionesInputError.removeClass('-show');
+                    validInputs++;
+                }
+            }
+        }
+
+        console.log(validInputs);
+
+        return validInputs === tasacionesFormInputs.length;
+    }
+
+    tasacionesFormInputs.on('focusout', function() {
+        var isValid = validateTasacionesForm();
+
+        if(isValid) {
+            tasacionesFormButton.removeAttr('disabled');
+        } else {
+            tasacionesFormButton.attr('disabled', true);
+        }
+    })
+
+    tasacionesFormButton.on('click', function(e) {
+        e.preventDefault();
+        var dataForMail = getTasacionesFormData();
+        console.log(dataForMail);
+
+        sendTasacionesConfirmByEmail(dataForMail);
+    });
+
+    function sendTasacionesConfirmByEmail(data) {
+        $.ajax({
+            type: "POST",
+            url: '/tasaciones.php',
+            crossDomain: true,
+            data: data
+        }).done(function(response) {
+            console.log('success AJAX', response);
+            // if(response === 'success') {
+            // }
+        }).fail(function(response) {
+            console.log('fail', response);
+        });
+    }
+
 }
 
 module.exports = ContactForm;

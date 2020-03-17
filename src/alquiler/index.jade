@@ -57,24 +57,32 @@ block content
                     option 3 Ambientes
                     option 4+ Ambientes
 
-                  .alquiler__filtros__radiobox
-                    .alquiler__filtros__radiobox-title Cochera
-                    .alquiler__filtros__radiobox-group
-                      input.alquiler__filtros__radiobox-input(type="radio" id="radio1" name="radio")
-                      label.alquiler__filtros__radiobox-label(for="radio1") Si
-                    .alquiler__filtros__radiobox-group
-                      input.alquiler__filtros__radiobox-input(type="radio" id="radio2" name="radio")
-                      label.alquiler__filtros__radiobox-label(for="radio2") No
+                  .alquiler__filtros__price
+                      label.alquiler__filtros__price-range__label.js-range-price-low
+                      label.alquiler__filtros__price-range__label.js-range-price-high
+                      .alquiler__filtros__price-range__bar-wrapper
+                          input.alquiler__filtros__price-range__bar.js-range-price(type='range', multiple, value="0", step="10000" min="0", max="1500000")
+                          input(type="hidden", name="from-price", id="inputPriceFrom").-js-minimo
+                          input(type="hidden", name="to-price", id="inputPriceTo").-js-maximo
 
-                  select.alquiler__filtros__select
-                    option Amenities
-                    option Amenitie 1
-                    option Amenitie 2
-                    option Amenitie 3
-                    option Amenitie 4
-                    option Amenitie 5 
+                  //- .alquiler__filtros__radiobox
+                  //-   .alquiler__filtros__radiobox-title Cochera
+                  //-   .alquiler__filtros__radiobox-group
+                  //-     input.alquiler__filtros__radiobox-input(type="radio" id="radio1" name="radio")
+                  //-     label.alquiler__filtros__radiobox-label(for="radio1") Si
+                  //-   .alquiler__filtros__radiobox-group
+                  //-     input.alquiler__filtros__radiobox-input(type="radio" id="radio2" name="radio")
+                  //-     label.alquiler__filtros__radiobox-label(for="radio2") No
 
-                  button.alquiler__filtros__button Aplicar filtros
+                  //- select.alquiler__filtros__select
+                  //-   option Amenities
+                  //-   option Amenitie 1
+                  //-   option Amenitie 2
+                  //-   option Amenitie 3
+                  //-   option Amenitie 4
+                  //- option Amenitie 5 
+
+                  button.alquiler__filtros__button.-js-filtros-submit Aplicar filtros
     section.alquiler__propiedades
       .container
         .row.propiedades__container

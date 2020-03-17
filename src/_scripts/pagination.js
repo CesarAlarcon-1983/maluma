@@ -38,7 +38,7 @@ var Pagination = {
     }
 
     var paramsForUrl = formattedParams.join('&');
-    var url = `http://localhost:3000/${operacion}?data=${operacion}&tipo_operacion=${operacion}&page=${page}&${paramsForUrl}`;
+    var url = `/${operacion}?data=${operacion}&tipo_operacion=${operacion}&page=${page}&${paramsForUrl}`;
 
     console.log(paramsForUrl);
     return url;
@@ -53,7 +53,7 @@ var Pagination = {
       ${pages > 2 ? `<li><a class="pagination__button ${currentPage === this.pagesArray[0] && '-active'}" href="${this.urlSelector(this.getParams(window.location.href), this.pagesArray[0])}">${this.pagesArray[0]}</a></li>`: ""}
       ${pages > 3 ? `<li><a class="pagination__button ${currentPage === this.pagesArray[1] && '-active'}" href="${this.urlSelector(this.getParams(window.location.href), this.pagesArray[1])}">${this.pagesArray[1]}</a></li>`: ""}
       ${pages > 4 ? `<li><a class="pagination__button ${currentPage === this.pagesArray[2] && '-active'}" href="${this.urlSelector(this.getParams(window.location.href), this.pagesArray[2])}">${this.pagesArray[2]}</a></li>` : ""}
-      ${currentPage <= pages - 3 || pages - 3 > 4 ? `<li><span class="pagination__dots">...</span></li>` : ''}
+      ${currentPage <= pages - 3 ? `<li><span class="pagination__dots">...</span></li>` : ''}
       ${pages > 1 ? `<li><a class="pagination__button ${currentPage === pages && '-active'}" href="${this.urlSelector(this.getParams(window.location.href), pages)}">${pages}</a></li>`: ""}
       `
     )

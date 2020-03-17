@@ -13,21 +13,22 @@ var Price = require('../_modules/multirange/price');
 var Home = require('./home');
 var Venta = require('./venta');
 var Alquiler = require('./alquiler');
+var QuienesSomos = require('./quienes-somos');
 var PropiedadDetalle = require('./propiedad-detalle');
 var Filtros = require('./filtros');
 var ContactForm = require('./contact-form');
 
 $(function() {
 
-    var domain = "http://maluma.test";
     new Header();
     new Slider();
     new Multirange();
     new Price();
     new Home();
-    new Venta(domain);
-    new Alquiler(domain);
-    new PropiedadDetalle(domain);
-    new Filtros(domain);
+    new QuienesSomos();
+    new Venta();
+    new Alquiler();
+    new PropiedadDetalle();
+    new Filtros();
     new ContactForm();
 });
