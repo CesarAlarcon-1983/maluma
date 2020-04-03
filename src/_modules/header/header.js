@@ -23,8 +23,8 @@ var Header = function() {
 
     //filter show mobile functionallity
 
-    var filterButton = $('.venta__filtros__filter-icon');
-    var filtersContainer = $('.venta__filtros__options');
+    var filterButton = $('.-js-filter-button');
+    var filtersContainer = $('.-js-filter-container');
 
     filterButton.on('click', function() { 
         filtersContainer.toggleClass('-open');

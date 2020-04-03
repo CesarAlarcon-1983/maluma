@@ -73,8 +73,9 @@
             padding-top: 150px;
         }
 
-        iframe {
-            // display: none;
+        iframe,
+        img {
+            display: none;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -86,8 +87,16 @@
 
             @include mq(md) {
                 display: block;
-                width: 200%;
-                height: 200%;
+            }
+        }
+
+        img {
+            display: block;
+            width: auto;
+            height: 100%;
+
+            @include mq(md) {
+                display: none;
             }
         }
 
@@ -100,7 +109,8 @@
             bottom: 0;
             width: 100%;
             height: 100%;
-            background: rgba(92, 74, 74, 0.3);
+            background: $black;
+            opacity: .5;
         }
 
         &__title {
@@ -231,7 +241,7 @@
             }
 
             &:nth-child(3) {
-                margin-bottom: 20px;
+                margin-bottom: 60px;
 
                 @include mq(md) {
                     margin-bottom: 0;
@@ -242,12 +252,72 @@
                 width: 24%;
                 margin-bottom: 0;
             }
+
+            &--select {
+                position: relative;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%) rotate(45deg);
+                    height: 5px;
+                    width: 5px;
+                    border-right: 2px solid $blue;
+                    border-bottom: 2px solid $blue;
+                    z-index: 2;
+                }
+            }
         }
 
         &__select {
             width: 100%;
             height: 100%;
             padding: 0 10px;
+            -webkit-appearance: none;
+            border: none;
+            outline: none;
+        }
+
+        &__currency {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            position: absolute;
+            top: -25px;
+        }
+
+        &__currency-input {
+            position: absolute;
+            left: -9999px;
+
+            &:checked + label {
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &__currency-label {
+            color: $white;
+            font-weight: 700;
+            position: relative;
+            cursor: pointer;
+
+            &:after {
+                content: '';
+                @include trans;
+                position: absolute;
+                left: -10px;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+                width: 3px;
+                height: 7px;
+                border-bottom: 2px solid $red;
+                border-right: 2px solid $red;
+                opacity: 0;
+            }
         }
 
         &__price {
@@ -320,7 +390,7 @@
 
             &__label {
                 position: absolute;
-                top: -30px;
+                bottom: -5px;
                 width: 0;
                 display: flex;
                 justify-content: center;
@@ -344,8 +414,8 @@
                         width: 5px;
                         height: 5px;
                         position: absolute;
-                        top: 100%;
-                        border-top: 5px solid $white;
+                        bottom: 100%;
+                        border-bottom: 5px solid $white;
                         border-left: 5px solid transparent;
                         border-right: 5px solid transparent;
                     }
@@ -444,13 +514,28 @@
     &__busqueda {
         padding: 120px 0 40px 0;
         background: url('/images/home-banner-2.jpg') no-repeat center center / cover;
+        z-index: 1;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: $black;
+            opacity: .5;
+        }
 
         &__title {
             text-transform: uppercase;
             font-weight: 900;
             font-size: 26px;
-            color: $corpBlack;
+            color: $white;
             margin: 0;
+            z-index: 2;
+            position: relative;
 
             @include mq(md) {
                 font-size: 40px;
@@ -462,6 +547,9 @@
             font-size: 16px;
             margin: 0;
             margin-bottom: 20px;
+            z-index: 2;
+            position: relative;
+            font-weight: 700;
 
             @include mq(md) {
                 font-size: 20px;
@@ -477,18 +565,20 @@
         }
 
         &__button {
-            display: block;
+            display: inline-block;
             background: $red;
             height: 40px;
             line-height: 40px;
             color: $white;
             text-align: center;
             text-decoration: none;
-            width: 50%;
             font-size: 14px;
+            z-index: 2;
+            position: relative;
+            font-weight: 700;
+            padding: 0 40px;
 
             @include mq(md) {
-                width: 15%;
             }
         }
     }

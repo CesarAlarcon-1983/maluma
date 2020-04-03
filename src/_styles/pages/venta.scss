@@ -1,5 +1,6 @@
 .venta,
-.alquiler {
+.alquiler,
+.emprendimiento {
     overflow: hidden;
     padding-top: 50px;
 
@@ -106,7 +107,7 @@
             transform: translateX(110%);
 
             @include mq(md) {
-                padding: 0;
+                padding: 0 10px;
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
@@ -144,11 +145,19 @@
 
         &__price {
             position: relative;
-            width: 25%;
-            height: 100%;
+            width: 80%;
+            height: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-right: auto;
+            margin-left: auto;
+
+            @include mq(md) {
+                width: 20%;
+                height: 100%;
+                margin-right: 20px;
+            }
 
             input[type=range] {
                 -webkit-appearance: none;
@@ -212,10 +221,14 @@
 
             &__label {
                 position: absolute;
-                top: -30px;
+                top: -15px;
                 width: 0;
                 display: flex;
                 justify-content: center;
+
+                @include mq(md) {
+                    top: -30px;
+                }
 
                 span {
                     position: absolute;
@@ -255,9 +268,12 @@
             align-items: center;
             margin-bottom: 20px;
             justify-content: center;
+            height: 40px;
 
             @include mq(md) {
                 margin-bottom: 0;
+                margin: 0 20px 0 5px;
+                height: 100%;
             }
         }
 
@@ -270,23 +286,7 @@
         }
 
         &__radiobox-group {
-            &:nth-child(2) {
-                margin-right: 10px;
-
-                .venta__filtros__radiobox-label {
-                    &:before {
-                        right: -16px
-                    }
-                }
-            }
-
-            &:last-child {
-                .venta__filtros__radiobox-label {
-                    &:before {
-                        right: -17px
-                    }
-                }
-            }
+            margin-left: 15px;
         }
 
         &__radiobox-input {
@@ -294,6 +294,8 @@
             left: -9999px;
 
             &:checked + label {
+                color: $red;
+
                 &:before {
                     opacity: 1;
                 }
@@ -301,33 +303,24 @@
         }
 
         &__radiobox-label {
-            color: $blue;
+            font-family: sans-serif;
+            color: $corpBlack;
             font-size: 14px;
-            font-weight: 900;
-            margin-right: 15px;
+            font-weight: 700;
             position: relative;
             cursor: pointer;
 
-            &:after  {
+            &:after {
                 content: '';
+                @include trans;
                 position: absolute;
-                right: -15px;
-                width: 10px;
-                height: 10px;
+                left: -10px;
                 top: 50%;
-                transform: translateY(-50%);
-                border: 1px solid $blue;
-            }
-
-            &:before {
-                content: '✔';
-                position: absolute;
-                // right: -17px;
-                top: 50%;
-                width: 10px;
-                line-height: 1;
-                transform: translateY(-50%);
-                font-size: 8px;
+                transform: translateY(-50%) rotate(45deg);
+                width: 3px;
+                height: 7px;
+                border-bottom: 2px solid $red;
+                border-right: 2px solid $red;
                 opacity: 0;
             }
         }

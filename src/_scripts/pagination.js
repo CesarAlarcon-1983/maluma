@@ -7,7 +7,7 @@ var Pagination = {
 
     this.pagesIndex(pages, currentPage);
 
-    paginationStructureContainer.append(this.paginationHtmlStructure(pages, currentPage, operacion))
+    paginationStructureContainer.append(this.paginationHtmlStructure(pages, currentPage))
   },
 
   getParams: function (url) {
@@ -27,7 +27,7 @@ var Pagination = {
 
   urlSelector: function(params, page) {
     var keys = Object.keys(params);
-    var operacion = window.location.href.indexOf('venta') > 0 ? 'venta' : 'alquiler';
+    var operacion = window.location.href.indexOf('venta') > 0 ? 'venta' : (window.location.href.indexOf('alquiler') > 0 ? 'alquiler' : 'emprendimientos');
 
     var formattedParams = [];
 
@@ -37,10 +37,9 @@ var Pagination = {
       }
     }
 
-    var paramsForUrl = formattedParams.join('&');
-    var url = `/${operacion}?data=${operacion}&tipo_operacion=${operacion}&page=${page}&${paramsForUrl}`;
+    var paramsForUrl = keys.length > 2 ? "&" + formattedParams.join('&') : "";
+    var url = `/${operacion}?&page=${page}${paramsForUrl}`;
 
-    console.log(paramsForUrl);
     return url;
   },
   

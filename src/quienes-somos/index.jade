@@ -9,8 +9,12 @@ include ../_modules/loading-screen/loading-screen
 include ../_modules/slider/slider
 
 block content
+  +loading-screen
+
   main.quienes-somos
     section.quienes-somos__hero
+      .quienes-somos__hero__image
+        img(src="/images/quienes.png")
       .container
         .row
           .col-24

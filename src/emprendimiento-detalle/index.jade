@@ -1,0 +1,129 @@
+extends ../_layouts/base
+
+block config
+  //- Correct base url pathing for this page
+  - var baseUrl = '../';
+
+include ../_modules/loading-screen/loading-screen
+
+block content
+  +loading-screen
+
+  main.emprendimiento-detalle.-js-emprendimiento-detalle
+    .container
+      .row
+        .col-24.col-md-14
+          .row
+            .col-24
+              .emprendimiento-detalle__heading.emprendimiento-detalle__heading--emprendimiento
+                .emprendimiento-detalle__heading__group
+                  span.emprendimiento-detalle__heading__type.-js-type Emprendimiento
+                  p.emprendimiento-detalle__heading__type-description.-js-description
+                .emprendimiento-detalle__heading__group
+                  p.emprendimiento-detalle__heading__address.-js-address
+                //- .emprendimiento-detalle__heading__group
+                //-   .emprendimiento-detalle__heading__details-group
+                //-     .emprendimiento-detalle__heading__details-image
+                //-       img(src="/images/square-meter-icon.png")
+                //-     span.-js-size
+                //-     span m2
+                //-   .emprendimiento-detalle__heading__details-group
+                //-     .emprendimiento-detalle__heading__details-image
+                //-       i.fa.fa-bed
+                //-     span.-js-rooms
+                //-   .emprendimiento-detalle__heading__details-group
+                //-     .emprendimiento-detalle__heading__details-image
+                //-       i.fa.fa-bath
+                //-     span.-js-bathrooms
+                //-     span &nbsp;baños
+
+            .col-24
+              .emprendimiento-detalle__main-image
+
+        .col-24.col-md-10
+          .row
+            .col-24
+              .emprendimiento-detalle__heading.emprendimiento-detalle__heading--emprendimiento
+                span.emprendimiento-detalle__heading__price.-js-price
+            .col-24
+              .emprendimiento-detalle__form-container
+                form.emprendimiento-detalle__form
+                  h4.emprendimiento-detalle__form__title contacto
+                  .emprendimiento-detalle__form__group
+                    input.emprendimiento-detalle__form__input(placeholder="Nombre*" required).-js-property-contact-nombre
+                    .emprendimiento-detalle__form__wrapper
+                      label.emprendimiento-detalle__form__error Direccion de e-mail no valida
+                      input.emprendimiento-detalle__form__input(placeholder="Email*" required).-js-property-contact-mail
+                    input.emprendimiento-detalle__form__input(placeholder="Teléfono*" required).-js-property-contact-telefono
+                    textarea(placeholder="Mensaje*" required).emprendimiento-detalle__form__input.emprendimiento-detalle__form__input--textarea.-js-property-contact-mensaje
+                    p.emprendimiento-detalle__form__required *Todos los campos son requieridos
+                    input(type="hidden")#propiedad-direccion
+                    input(type="hidden")#propiedad-operacion
+                    button.emprendimiento-detalle__form__button.-js-property-contact-submit-button(disabled) Enviar
+
+        .col-24
+          .emprendimiento-detalle__social-container
+            ul.emprendimiento-detalle__social
+              li.emprendimiento-detalle__item
+                a(href="#")
+                  i.fa.fa-facebook
+
+              li.emprendimiento-detalle__item
+                a(href="#")
+                  i.fa.fa-whatsapp
+              li.emprendimiento-detalle__item
+                a(href="#")
+                  i.fa.fa-instagram
+              li.emprendimiento-detalle__item
+                a(href="#")
+                  i.fa.fa-envelope
+              li.emprendimiento-detalle__item
+                a(href="#")
+                  i.fa.fa-print
+
+        .col-24
+          .row
+            .col-24
+              .emprendimiento-detalle__description
+                h3.emprendimiento-detalle__description__title descripción
+                p.emprendimiento-detalle__description__text.-js-full-description
+
+            .col-24
+              .row.emprendimiento-detalle__details__row-container
+                .col-24
+                  .emprendimiento-detalle__details
+                    .emprendimiento-detalle__details__heading
+                      button.emprendimiento-detalle__details__tab(data-target="detalles") detalles
+                      button.emprendimiento-detalle__details__tab(data-target="caracteristicas") caracteristicas
+                      button.emprendimiento-detalle__details__tab(data-target="medidas") medidas
+                .col-24.emprendimiento-detalle__details__content(data-content="detalles")
+                  .emprendimiento-detalle__details__wrapper
+                    .row.emprendimiento-detalle__details__container.-js-detalles-container
+
+                .col-24.emprendimiento-detalle__details__content(data-content="caracteristicas")
+                  .emprendimiento-detalle__details__wrapper
+                    .row.emprendimiento-detalle__details__container.-js-caracteristicas-container
+
+                .col-24.emprendimiento-detalle__details__content(data-content="medidas")
+                  .emprendimiento-detalle__details__wrapper
+                    .row.emprendimiento-detalle__details__container.-js-medidas-container
+
+        //- .col-24.col-md-10
+        //-   .emprendimiento-detalle__others.-js-other-properties
+        //-     h3.emprendimiento-detalle__others__title Otras propiedades en alquiler
+            //- .emprendimiento-detalle__others__image
+            //-   img(src="https://picsum.photos/id/239/300/300")
+            //- .emprendimiento-detalle__others__image
+            //-   img(src="https://picsum.photos/id/238/300/300")
+            //- .emprendimiento-detalle__others__image
+            //-   img(src="https://picsum.photos/id/237/300/300")
+            //- .emprendimiento-detalle__others__image
+            //-   img(src="https://picsum.photos/id/236/300/300")
+            //- .emprendimiento-detalle__others__image
+            //-   img(src="https://picsum.photos/id/235/300/300")
+            //- .emprendimiento-detalle__others__image
+            //-   img(src="https://picsum.photos/id/234/300/300")
+            //- .emprendimiento-detalle__others__image
+            //-   img(src="https://picsum.photos/id/233/300/300")
+            //- .emprendimiento-detalle__others__image
+            //-   img(src="https://picsum.photos/id/232/300/300")

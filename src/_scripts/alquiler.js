@@ -4,7 +4,7 @@ var Properties = require('./properties');
 var Pagination = require('./pagination');
 
 // Constructor
-var Alquiler = function() {
+var Alquiler = function(phpRootPath, enviroment) {
   var context = $('.alquiler');
   
   if(context.length > 0) {
@@ -16,8 +16,6 @@ var Alquiler = function() {
     var operacion = 'alquiler';
     var currentPage = new URL(window.location.href).searchParams.get('page');
 
-    console.log(currentPage);
-    
     var getParams = function (url) {
       var params = {};
       var parser = document.createElement('a');
@@ -55,10 +53,16 @@ var Alquiler = function() {
       }
     }
 
-    var fetchUrl = `/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}&${paramsConstructor(paramsInUrl)}`;
+    var url = function() {
+      if(enviroment === "dev") {
+        return `${phpRootPath}/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}&${paramsConstructor(paramsInUrl)}`;
+      } else {
+        return `/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}&${paramsConstructor(paramsInUrl)}`;
+      }
+    }
 
     $.when(
-      Properties.get(fetchUrl)
+      Properties.get(url())
     ).done(function(data) {
       propiedadesAlquiler = JSON.parse(data);
       var page = propiedadesAlquiler.resultado.datos.SiguientePag !== "" ? propiedadesAlquiler.resultado.datos.SiguientePag - 1 : propiedadesAlquiler.resultado.datos.paginas;

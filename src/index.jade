@@ -7,11 +7,12 @@ block content
     +loading-screen
 
     main.home
-        a.home__group(href="/tasaciones")
+        a.home__group(href="tel:1136736569" target="_blank")
             p tasaciones online
             i.fa.fa-whatsapp
         section.home__hero
             iframe(src="https://www.youtube.com/embed/5poMa_byLc8?autoplay=1&playlist=5poMa_byLc8&loop=1&controls=0&mute=1&showinfo=0")
+            img(src="/images/hero.jpg")
             .container
                 .row
                     .col-24
@@ -31,27 +32,37 @@ block content
                         form.home__search__searchbox
                             .home__search__tabs
                                 .home__search__tab
-                                    input.home__search__tab-input(type="radio" name="radio" id="radio1" checked)
-                                    label.home__search__tab-label(for="radio1") venta
+                                    input.home__search__tab-input(type="radio" name="operacion" id="operacion1")
+                                    label.home__search__tab-label(for="operacion1") venta
                                 .home__search__tab
-                                    input.home__search__tab-input(type="radio" name="radio" id="radio2")
-                                    label.home__search__tab-label(for="radio2") alquiler
+                                    input.home__search__tab-input(type="radio" name="operacion" id="operacion2")
+                                    label.home__search__tab-label(for="operacion2") alquiler
                             .home__search__inputs
-                                .home__search__group
+                                .home__search__group.home__search__group--select
                                     select.home__search__select.-js-inmueble.-js-inmueble
                                         option(hidden selected disabled) Tipo
                                         //- option Casa
                                         //- option Departamento
 
-                                .home__search__group
+                                .home__search__group.home__search__group--select
                                     select.home__search__select.-js-ambientes
-                                        option Dormitorios
-                                        option 1
-                                        option 2
-                                        option 3
-                                        option 4+
+                                        option(hidden selected disabled) Ambientes
+                                        option(value="1 AMBIENTES") 1 Ambiente
+                                        option(value="2 AMBIENTES") 2 Ambientes
+                                        option(value="3 AMBIENTES") 3 Ambientes
+                                        option(value="4 AMBIENTES") 4 Ambientes
+                                        option(value="5 AMBIENTES") 5 Ambientes
+                                        option(value="6 AMBIENTES") 6 Ambientes
+                                        option(value="7 AMBIENTES") 7+ Ambientes
 
                                 .home__search__group
+                                    .home__search__currency
+                                        .home__search__currency-group
+                                            input.home__search__currency-input(type="radio" name="currency" id="currency1")
+                                            label.home__search__currency-label(for="currency1") USD
+                                        .home__search__currency-group.-js-pesos-group
+                                            input.home__search__currency-input(type="radio" name="currency" id="currency2")
+                                            label.home__search__currency-label(for="currency2") Pesos
                                     .home__search__price
                                         label.home__search__price-range__label.js-range-price-low
                                         label.home__search__price-range__label.js-range-price-high
@@ -75,11 +86,11 @@ block content
             .container
                 .row
                     .col-24.col-md-12
-                        h3.home__emprendimiento__title EMPRENDIMIENTOS 2019
+                        h3.home__emprendimiento__title EMPRENDIMIENTOS
                         p.home__emprendimiento__text ¡SÉ EL PRIMERO EN DESCUBRIR<br>NUESTROS EMPRENDIMIENTOS DEL AÑO!
                     .col-24.col-md-12
                         .home__emprendimiento__wrapper
-                            a.home__emprendimiento__button(href="#") Visitar Ahora
+                            a.home__emprendimiento__button(href="/emprendimientos?page=1") Visitar Ahora
 
         section.home__busqueda
             .container
@@ -95,14 +106,14 @@ block content
                     .col-24.col-md-18.offset-md-3
                         .home__modules__container
                             .home__modules__wrapper
-                                a.home__modules__casas(href="#")
+                                a.home__modules__casas(href="/venta?page=1&tipo=Casa")
                                     p casas
                                     .home__modules__more ver más
-                                a.home__modules__municipales(href="#")
+                                a.home__modules__municipales(href="/venta?page=1&tipo=Casa")
                                     p casas ex municipales
                                     .home__modules__more ver más
                             .home__modules__wrapper
-                                a.home__modules__departamentos(href="#")
+                                a.home__modules__departamentos(href="/venta?page=1&tipo=Departamento")
                                     p departamentos
                                     .home__modules__more ver más
                     .col-24.col-md-18.offset-md-3

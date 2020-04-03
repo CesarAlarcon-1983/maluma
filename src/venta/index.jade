@@ -28,9 +28,9 @@ block content
                   option filtro 4
                   option filtro 5
               .venta__filtros__group
-                button.venta__filtros__filter-icon
+                button.venta__filtros__filter-icon.-js-filter-button
                   i.fa.fa-filter
-                .venta__filtros__options
+                .venta__filtros__options.-js-filter-container
                   select.venta__filtros__select.-js-inmueble
                     option(selected disabled hidden) Tipo de inmueble
 
@@ -52,10 +52,21 @@ block content
 
                   select.venta__filtros__select.-js-ambientes
                     option(selected disabled hidden) Ambientes
-                    option 1 Ambiente
-                    option 2 Ambientes
-                    option 3 Ambientes
-                    option 4+ Ambientes
+                    option(value="1 AMBIENTES") 1 Ambiente
+                    option(value="2 AMBIENTES") 2 Ambientes
+                    option(value="3 AMBIENTES") 3 Ambientes
+                    option(value="4 AMBIENTES") 4 Ambientes
+                    option(value="5 AMBIENTES") 5 Ambientes
+                    option(value="6 AMBIENTES") 6 Ambientes
+                    option(value="7 AMBIENTES") 7+ Ambientes
+
+                  .venta__filtros__radiobox
+                    .venta__filtros__radiobox-group
+                      input.venta__filtros__radiobox-input(type="radio" id="currency1" name="currency")
+                      label.venta__filtros__radiobox-label(for="currency1") USD
+                    //- .venta__filtros__radiobox-group
+                    //-   input.venta__filtros__radiobox-input(type="radio" id="currency2" name="currency")
+                    //-   label.venta__filtros__radiobox-label(for="currency2") Pesos
 
                   .venta__filtros__price
                       label.venta__filtros__price-range__label.js-range-price-low
@@ -65,14 +76,6 @@ block content
                           input(type="hidden", name="from-price", id="inputPriceFrom").-js-minimo
                           input(type="hidden", name="to-price", id="inputPriceTo").-js-maximo
 
-                  //- .venta__filtros__radiobox
-                  //-   .venta__filtros__radiobox-title Cochera
-                  //-   .venta__filtros__radiobox-group
-                  //-     input.venta__filtros__radiobox-input(type="radio" id="radio1" name="radio")
-                  //-     label.venta__filtros__radiobox-label(for="radio1") Si
-                  //-   .venta__filtros__radiobox-group
-                  //-     input.venta__filtros__radiobox-input(type="radio" id="radio2" name="radio")
-                  //-     label.venta__filtros__radiobox-label(for="radio2") No
 
                   //- select.venta__filtros__select.-js-amenities
                   //-   option(selected disabled hidden) Amenities

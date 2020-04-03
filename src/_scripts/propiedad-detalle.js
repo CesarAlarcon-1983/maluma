@@ -3,7 +3,7 @@
 var Properties = require('./properties');
 
 // Constructor
-var PropiedadDetalle = function() {
+var PropiedadDetalle = function(phpRootPath, enviroment) {
   var context = $('.-js-propiedad-detalle');
   
   if(context.length > 0) {
@@ -19,15 +19,22 @@ var PropiedadDetalle = function() {
     var caracteristicasContainer = $('.-js-caracteristicas-container');
     var medidasContainer = $('.-js-medidas-container');
     var propertiesImagesContainer = $('.-js-other-properties');
-    var url = "/propiedades.php?data=propiedad&ficha=" + id;
     var targets = $('[data-target]');
     var contents = $('[data-content]');
     var operacion = window.location.href.indexOf('venta-detalle') > 0 ? 'venta' : 'alquiler';
     var direccionInput = $('#propiedad-direccion');
     var operacionInput = $('#propiedad-operacion');
 
+    var url = function() {
+      if(enviroment === "dev") {
+        return `${phpRootPath}/propiedades.php?data=propiedad&ficha=${id}`;
+      } else {
+        return `/propiedades.php?data=propiedad&ficha=${id}`;
+      }
+    }
+
     $.when(
-      Properties.get(url)
+      Properties.get(url())
     ).done(function(data) {
       dataPropiedades = JSON.parse(data);
 

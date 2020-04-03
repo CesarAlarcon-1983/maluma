@@ -23,8 +23,26 @@ if($dataSet === 'destacados') {
         'emprendimiento'=>'True',
         'inm' => $inm,
         'apiK' => $apiK,
-        'id'=> $_GET['ficha']
+        'id'=> $_GET['ficha'],
     );
+
+} elseif ($dataSet === 'emprendimientos') {
+    
+    $data = array(
+        'json' => 'resultados.emprendimientos',
+        'inm' => $inm,
+        'apiK' => $apiK,
+    );
+
+} elseif ($dataSet === 'emprendimiento') {
+    
+    $data = array(
+        'json' => 'ficha.emprendimientos',
+        'inm' => $inm,
+        'apiK' => $apiK,
+    );
+
+    if(isset($_GET['id'])){ $data['ed_idl'] = $_GET['id']; }
 
 } elseif ($dataSet === 'barrios') {
     
@@ -32,17 +50,17 @@ if($dataSet === 'destacados') {
         'json' => 'datos.select.buscador',
         'in_bar' => $_GET['in_bar'],
         'inm' =>$inm,
-        'apiK' =>$apiK
+        'apiK' =>$apiK,
     );
 
 } else {
     
-    $barrio = "";
-    $tipoInmueble = "";
-    $ambientes = "";
-    $valorMinimo = "";
-    $valorMaximo = "";
-    $page = "";
+    // $barrio = "";
+    // $tipoInmueble = "";
+    // $ambientes = "";
+    // $valorMinimo = "";
+    // $valorMaximo = "";
+    // $page = "";
     
     $data = array(
         'json' => 'resultados.fichas',
@@ -54,9 +72,11 @@ if($dataSet === 'destacados') {
 
     if(isset($_GET['tipo'])){ $data['tipo_inmueble'] = $_GET['tipo']; }
     if(isset($_GET['barrio'])){ $data['barrios1'] = $_GET['barrio']; }
-    if(isset($_GET['ambientes'])){ $data['ambientes'] = $_GET['ambientes']; }
+    if(isset($_GET['ambientes'])){ $data['Ambientes'] = $_GET['ambientes']; }
+    // if(isset($_GET['ambientesMax'])){ $data['Ambientes2'] = $_GET['ambientesMax']; }
     if(isset($_GET['min'])){ $data['valor_minimo'] = $_GET['min']; }
     if(isset($_GET['max'])){ $data['valor_maximo'] = $_GET['max']; }
+    if(isset($_GET['moneda'])){ $data['moneda'] = urldecode($_GET['moneda']); }
     if(isset($_GET['page'])){ $data['page'] = $_GET['page']; }
 }
 

@@ -3,7 +3,7 @@
 var Properties = require('./properties');
 
 // Constructor
-var QuienesSomos = function() {
+var QuienesSomos = function(phpRootPath, enviroment) {
   var context = $('.quienes-somos');
   
   if(context.length > 0) {
@@ -11,11 +11,20 @@ var QuienesSomos = function() {
     var loadingScreen = $('.loading-screen');
     var body = $('body');
     var destacadosContainer = $('.-js-destacados-container');
-
     body.addClass('-hideOverflow');
 
+    
+
+    var url = function() {
+      if(enviroment === "dev") {
+        return phpRootPath + '/propiedades.php?data=destacados';
+      } else {
+        return '/propiedades.php?data=destacados';
+      }
+    }
+
     $.when(
-      Properties.get('/propiedades.php?data=destacados')
+      Properties.get(url())
     ).done(function(data) {
       destacados = JSON.parse(data);
 

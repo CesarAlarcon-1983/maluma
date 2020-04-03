@@ -4,7 +4,7 @@ var Properties = require('./properties');
 var Pagination = require('./pagination');
 
 // Constructor
-var Venta = function() {
+var Venta = function(phpRootPath, enviroment) {
   var context = $('.venta');
   
   if(context.length > 0) {
@@ -16,8 +16,6 @@ var Venta = function() {
     var operacion = 'venta';
     var currentPage = new URL(window.location.href).searchParams.get('page');
 
-    console.log(currentPage);
-    
     var getParams = function (url) {
       var params = {};
       var parser = document.createElement('a');
@@ -42,7 +40,6 @@ var Venta = function() {
       var formattedParams = [];
 
       if(keys.length > 1) {
-        console.log('inside if')
         for(var i = 0; i < keys.length; i++) {
           if(params[keys[i]] !== "" && keys[i] !== "page") {
             formattedParams.push( keys[i] + "=" + params[keys[i]])
@@ -55,10 +52,17 @@ var Venta = function() {
       }
     }
 
-    var fetchUrl = `/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}&${paramsConstructor(paramsInUrl)}`;
+    
+    var url = function() {
+      if(enviroment === "dev") {
+        return `${phpRootPath}/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}${paramsConstructor(paramsInUrl)}`;
+      } else {
+        return `/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}&${paramsConstructor(paramsInUrl)}`;
+      }
+    }
 
     $.when(
-      Properties.get(fetchUrl)
+      Properties.get(url())
     ).done(function(data) {
       propiedadesVenta = JSON.parse(data);
       var page = propiedadesVenta.resultado.datos.SiguientePag !== "" ? propiedadesVenta.resultado.datos.SiguientePag - 1 : propiedadesVenta.resultado.datos.paginas;
@@ -117,7 +121,7 @@ var Venta = function() {
 
       var propiedadesEnVenta;
 
-      if(propiedadesVenta.fichas) {
+      if(propiedadesVenta.fichas && propiedadesVenta.fichas.length > 0) {
         propiedadesEnVenta = propiedadesVenta.fichas.map(function(propiedad, index) {
           return(
             `<div class="col-24 col-md-8">
