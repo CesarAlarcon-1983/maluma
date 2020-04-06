@@ -35,14 +35,13 @@ if($dataSet === 'destacados') {
     );
 
 } elseif ($dataSet === 'emprendimiento') {
-    
+
     $data = array(
         'json' => 'ficha.emprendimientos',
         'inm' => $inm,
         'apiK' => $apiK,
+        'id'=> $_GET['ficha'],
     );
-
-    if(isset($_GET['id'])){ $data['ed_idl'] = $_GET['id']; }
 
 } elseif ($dataSet === 'barrios') {
     

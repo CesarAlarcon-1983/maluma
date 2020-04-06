@@ -133,7 +133,7 @@ var Emprendimiento = function(phpRootPath, enviroment) {
           return(
             `<div class="col-24 col-md-8">
               <div class="venta__propiedades__propiedad">
-                <a href="/emprendimiento-detalle?id=MLM${emprendimiento.ed_idl}" class="propiedad">
+                <a href="/emprendimiento-detalle?id=${emprendimiento.ed_idl}" class="propiedad">
                   <div class="_slider propiedad__slider">
                     ${sliderImages(emprendimientos.img[0])}
                   </div>
