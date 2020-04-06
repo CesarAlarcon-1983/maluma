@@ -50,18 +50,18 @@ block content
                 form.emprendimiento-detalle__form
                   h4.emprendimiento-detalle__form__title contacto
                   .emprendimiento-detalle__form__group
-                    input.emprendimiento-detalle__form__input(placeholder="Nombre*" required).-js-property-contact-nombre
+                    input.propiedad-detalle__form__input.emprendimiento-detalle__form__input(placeholder="Nombre*" required).-js-property-contact-nombre
                     .emprendimiento-detalle__form__wrapper
-                      label.emprendimiento-detalle__form__error Direccion de e-mail no valida
-                      input.emprendimiento-detalle__form__input(placeholder="Email*" required).-js-property-contact-mail
-                    input.emprendimiento-detalle__form__input(placeholder="Teléfono*" required).-js-property-contact-telefono
-                    textarea(placeholder="Mensaje*" required).emprendimiento-detalle__form__input.emprendimiento-detalle__form__input--textarea.-js-property-contact-mensaje
+                      label.propiedad-detalle__form__error Direccion de e-mail no valida
+                      input.propiedad-detalle__form__input.emprendimiento-detalle__form__input(placeholder="Email*" required).-js-property-contact-mail
+                    input.propiedad-detalle__form__input.emprendimiento-detalle__form__input(placeholder="Teléfono*" required).-js-property-contact-telefono
+                    textarea(placeholder="Mensaje*" required).propiedad-detalle__form__input.propiedad-detalle__form__input--textarea.-js-property-contact-mensaje
                     p.emprendimiento-detalle__form__required *Todos los campos son requieridos
                     input(type="hidden")#propiedad-direccion
                     input(type="hidden")#propiedad-operacion
                     button.emprendimiento-detalle__form__button.-js-property-contact-submit-button(disabled) Enviar
 
-        .col-24
+        .col-24.col-md-14
           .emprendimiento-detalle__social-container
             ul.emprendimiento-detalle__social
               li.emprendimiento-detalle__item
@@ -81,7 +81,7 @@ block content
                 a(href="#")
                   i.fa.fa-print
 
-        .col-24
+        .col-24.col-md-14
           .row
             .col-24
               .emprendimiento-detalle__description
@@ -95,7 +95,7 @@ block content
                     .emprendimiento-detalle__details__heading
                       button.emprendimiento-detalle__details__tab(data-target="detalles") detalles
                       button.emprendimiento-detalle__details__tab(data-target="caracteristicas") caracteristicas
-                      button.emprendimiento-detalle__details__tab(data-target="medidas") medidas
+                      button.emprendimiento-detalle__details__tab(data-target="forma-de-pago") Forma de pago
                 .col-24.emprendimiento-detalle__details__content(data-content="detalles")
                   .emprendimiento-detalle__details__wrapper
                     .row.emprendimiento-detalle__details__container.-js-detalles-container
@@ -104,9 +104,9 @@ block content
                   .emprendimiento-detalle__details__wrapper
                     .row.emprendimiento-detalle__details__container.-js-caracteristicas-container
 
-                .col-24.emprendimiento-detalle__details__content(data-content="medidas")
+                .col-24.emprendimiento-detalle__details__content(data-content="forma-de-pago")
                   .emprendimiento-detalle__details__wrapper
-                    .row.emprendimiento-detalle__details__container.-js-medidas-container
+                    .row.emprendimiento-detalle__details__container.-js-forma-de-pago-container
 
         //- .col-24.col-md-10
         //-   .emprendimiento-detalle__others.-js-other-properties

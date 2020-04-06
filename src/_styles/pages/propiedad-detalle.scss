@@ -553,6 +553,10 @@
             white-space: nowrap;
             display: flex;
             align-items: center;
+
+            &--emprendimiento {
+                font-weight: 300;
+            }
         }
 
         &__group-text {

@@ -8,7 +8,7 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
   
   if(context.length > 0) {
     var emprendimiento = {};    
-    var properties = {};    
+    // var properties = {};    
     var loadingScreen = $('.loading-screen');
     var body = $('body');
     var sliderContainer = $('.emprendimiento-detalle__main-image');
@@ -17,19 +17,20 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
     var rowContainer = $('.emprendimiento-detalle__details__row-container');
     var detallesContainer = $('.-js-detalles-container');
     var caracteristicasContainer = $('.-js-caracteristicas-container');
-    var medidasContainer = $('.-js-medidas-container');
+    var formaDePagoContainer = $('.-js-forma-de-pago-container');
     var propertiesImagesContainer = $('.-js-other-properties');
     var targets = $('[data-target]');
     var contents = $('[data-content]');
-    var operacion = window.location.href.indexOf('venta-detalle') > 0 ? 'venta' : 'alquiler';
-    var direccionInput = $('#propiedad-direccion');
-    var operacionInput = $('#propiedad-operacion');
+    // var operacion = window.location.href.indexOf('venta-detalle') > 0 ? 'venta' : 'alquiler';
+    // var direccionInput = $('#propiedad-direccion');
+    // var operacionInput = $('#propiedad-operacion');
 
+    console.log(id);
     var url = function() {
       if(enviroment === "dev") {
-        return `${phpRootPath}/propiedades.php?data=emprendimientos&id=${id}`;
+        return `${phpRootPath}/propiedades.php?data=emprendimiento&ficha=${id}`;
       } else {
-        return `/propiedades.php?data=emprendimientos&id=${id}`;
+        return `/propiedades.php?data=emprendimiento&ficha=${id}`;
       }
     }
 
@@ -54,9 +55,9 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
   
       rowContainer.height(detailsWrapper.height() + 60);
 
-      // caracteristicasContainer.append(caracteristicasHtmlStructure(emprendimiento));
-      // medidasContainer.append(medidasHtmlStructure(emprendimiento));
-
+      caracteristicasContainer.append(caracteristicasHtmlStructure(emprendimiento));
+      formaDePagoContainer.append(formaDePagoHtmlStructure(emprendimiento));
+      console.log(formaDePagoHtmlStructure(emprendimiento));
       // direccionInput.val(emprendimiento.resultado.ficha[0].direccion);
       // operacionInput.val(operacion);
     });
@@ -221,6 +222,12 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
         case "Parrilla":
           iconClass = "mlm-parrilla";
           break;
+        case "SUM":
+          iconClass = "mlm-sum";
+          break;
+        case "Solarium":
+          iconClass = "mlm-solarium";
+          break;
         case "Quincho":
           iconClass = "mlm-quincho";
           break;
@@ -267,8 +274,8 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
     function caracteristicasHtmlStructure(propiedad) {
       var caracteristicasHtml;
 
-      if(propiedad.resultado.caracteristicas_generales_personalizadas && propiedad.resultado.caracteristicas_generales_personalizadas.length > 0) {
-        caracteristicasHtml = propiedad.resultado.caracteristicas_generales_personalizadas.map(function(caracteristica) {
+      if(propiedad.resultado.caracteristicas && propiedad.resultado.caracteristicas.length > 0) {
+        caracteristicasHtml = propiedad.resultado.caracteristicas.map(function(caracteristica) {
           return(
             `<div class="col-24 col-md-6">
               <div class="propiedad-detalle__details__group propiedad-detalle__details__group--caracteristicas">
@@ -302,18 +309,33 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
       return caracteristicasHtml;
     }
 
-    function medidasHtmlStructure(propiedad) {
+    function formaDePagoHtmlStructure(propiedad) {
       var medidasHtml;
 
-      console.log(propiedad.resultado.superficie.cantidad);
-
-      if(propiedad.resultado.superficie.cantidad && propiedad.resultado.superficie.cantidad > 0) {
-        medidasHtml = propiedad.resultado.superficie.title.map(function(medida, index) {
+      if(propiedad.resultado.emprendimiento && propiedad.resultado.emprendimiento.length > 0) {
+        medidasHtml = propiedad.resultado.emprendimiento.map(function(item, index) {
           return(
-            `<div class="col-24 col-md-12">
+            `<div class="col-24 col-md-8">
               <div class="propiedad-detalle__details__group propiedad-detalle__details__group--medidas">
-                <h3 class="propiedad-detalle__details__group-title">${medida}</h3>
-                <p class="propiedad-detalle__details__group-text propiedad-detalle__details__group-text--medidas">${propiedad.resultado.superficie.dato[index]}</p>
+                <h3 class="propiedad-detalle__details__group-title">Porcentaje Boleto</h3>
+                <p class="propiedad-detalle__details__group-text propiedad-detalle__details__group-text--medidas">${item.porcentaje_boleto}</p>
+              </div>
+            </div>
+            <div class="col-24 col-md-8">
+              <div class="propiedad-detalle__details__group propiedad-detalle__details__group--medidas">
+                <h3 class="propiedad-detalle__details__group-title">Porcentaje Cuotas</h3>
+                <p class="propiedad-detalle__details__group-text propiedad-detalle__details__group-text--medidas">${item.porcentaje_cuotas}</p>
+              </div>
+            </div>
+            <div class="col-24 col-md-8">
+              <div class="propiedad-detalle__details__group propiedad-detalle__details__group--medidas">
+                <h3 class="propiedad-detalle__details__group-title">Cantidad Cuotas</h3>
+                <p class="propiedad-detalle__details__group-text propiedad-detalle__details__group-text--medidas">${item.cantidad_cuotas}</p>
+              </div>
+            </div>
+            <div class="col-24">
+              <div class="propiedad-detalle__details__group propiedad-detalle__details__group--medidas">
+                <h3 class="propiedad-detalle__details__group-title propiedad-detalle__details__group-title--emprendimiento">${item.ed_fpa}</h3>
               </div>
             </div>`
           )
