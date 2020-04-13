@@ -240,6 +240,10 @@
             @include mq(md) {
                 width: 30%;
             }
+
+            &:hover {
+                background: darken($red, 10%);
+            }
         }
     }
 }

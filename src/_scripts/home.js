@@ -65,7 +65,7 @@ var Home = function(phpRootPath, enviroment) {
           return(
             `<div class="col-24 col-md-8">
               <div class="home__search__propiedad">
-                <a href="/${propiedad.operacion.toLowerCase()}-detalle/?id=${propiedad.in_num}" class="propiedad">
+                <a href="/${propiedad.operacion.toLowerCase()}-detalle/index.html?id=${propiedad.in_num}" class="propiedad">
                   <div class="_slider propiedad__slider">
                     ${sliderImages(destacados, index)}
                   </div>

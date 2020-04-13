@@ -89,14 +89,14 @@ var Venta = function(phpRootPath, enviroment) {
     arrowLeft.on('click', function(e) {
       e.preventDefault();
       var navigationPage = parseInt(currentPage) - 1;
-      var arrowsNavUrl = `/${operacion}/?page=${navigationPage}${paramsConstructor(paramsInUrl)}`;
+      var arrowsNavUrl = `/${operacion}/index.html?page=${navigationPage}${paramsConstructor(paramsInUrl)}`;
       window.location.href = arrowsNavUrl;
     })
 
     arrowRight.on('click', function(e) {
       e.preventDefault();
       var navigationPage = parseInt(currentPage) + 1;
-      var arrowsNavUrl = `/${operacion}/?page=${navigationPage}${paramsConstructor(paramsInUrl)}`;
+      var arrowsNavUrl = `/${operacion}/index.html?page=${navigationPage}${paramsConstructor(paramsInUrl)}`;
       window.location.href = arrowsNavUrl;
     })
 
@@ -126,7 +126,7 @@ var Venta = function(phpRootPath, enviroment) {
           return(
             `<div class="col-24 col-md-8">
               <div class="venta__propiedades__propiedad">
-                <a href="/venta-detalle?id=${propiedad.in_num}" class="propiedad">
+                <a href="/venta-detalle/index.html?id=${propiedad.in_num}" class="propiedad">
                   <div class="_slider propiedad__slider">
                     ${sliderImages(propiedadesVenta.img[index])}
                   </div>

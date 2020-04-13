@@ -120,7 +120,7 @@ var Filtros = function(phpRootPath, enviroment) {
     filtersButton.on('click', function(e) {
       e.preventDefault();
       // window.location.href = `/${operacion()}/?page=1${tipoInmueble !== '' ? "&tipo=" + tipoInmueble : ""}${barrio !== '' ? "&barrio=" + barrio : ""}${ambientesMin !== '' ? "&ambientesMin=" + ambientesMin : ""}${ambientesMax !== '' ? "&ambientesMax=" + ambientesMax : ""}&moneda=${moneda()}&min=${valorMinimoSelect.val()}&max=${valorMaximoSelect.val()}`;
-      window.location.href = `/${operacion()}/?page=1${tipoInmueble !== '' ? "&tipo=" + tipoInmueble : ""}${barrio !== '' ? "&barrio=" + barrio : ""}${ambientes !== '' ? "&ambientes=" + ambientes : ""}&moneda=${moneda()}&min=${valorMinimoSelect.val()}&max=${valorMaximoSelect.val()}`;
+      window.location.href = `/${operacion()}/index.html?page=1${tipoInmueble !== '' ? "&tipo=" + tipoInmueble : ""}${barrio !== '' ? "&barrio=" + barrio : ""}${ambientes !== '' ? "&ambientes=" + ambientes : ""}&moneda=${moneda()}&min=${valorMinimoSelect.val()}&max=${valorMaximoSelect.val()}`;
     })
   }
 }

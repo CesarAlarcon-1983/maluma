@@ -233,6 +233,10 @@
             @include mq(md) {
                 width: 40%;
             }
+
+            &:hover {
+                background: darken($red, 10%);
+            }
         }
 
         &__slider-container {
@@ -263,6 +267,7 @@
             bottom: -70px;
             top: auto;
             transform: translateY(0);
+            display: block !important;
         }
 
         .slick-prev {

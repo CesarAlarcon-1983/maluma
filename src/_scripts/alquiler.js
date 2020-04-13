@@ -13,7 +13,7 @@ var Alquiler = function(phpRootPath, enviroment) {
     var body = $('body');
     var arrowLeft = $('.-js-arrow-left');
     var arrowRight = $('.-js-arrow-right');
-    var operacion = 'alquiler';
+    var operacion = 'A';
     var currentPage = new URL(window.location.href).searchParams.get('page');
 
     var getParams = function (url) {
@@ -87,14 +87,14 @@ var Alquiler = function(phpRootPath, enviroment) {
     arrowLeft.on('click', function(e) {
       e.preventDefault();
       var navigationPage = parseInt(currentPage) - 1;
-      var arrowsNavUrl = `/${operacion}/?page=${navigationPage}${paramsConstructor(paramsInUrl)}`;
+      var arrowsNavUrl = `/${operacion}/index.html?page=${navigationPage}${paramsConstructor(paramsInUrl)}`;
       window.location.href = arrowsNavUrl;
     })
 
     arrowRight.on('click', function(e) {
       e.preventDefault();
       var navigationPage = parseInt(currentPage) + 1;
-      var arrowsNavUrl = `/${operacion}/?page=${navigationPage}${paramsConstructor(paramsInUrl)}`;
+      var arrowsNavUrl = `/${operacion}/index.html?page=${navigationPage}${paramsConstructor(paramsInUrl)}`;
       window.location.href = arrowsNavUrl;
     })
 
@@ -117,12 +117,12 @@ var Alquiler = function(phpRootPath, enviroment) {
 
       var propiedadesEnAlquiler;
 
-      if(propiedadesAlquiler.fichas) {
+      if(propiedadesAlquiler.fichas && propiedadesAlquiler.fichas.length > 0) {
         propiedadesEnAlquiler = propiedadesAlquiler.fichas.map(function(propiedad, index) {
           return(
             `<div class="col-24 col-md-8">
               <div class="venta__propiedades__propiedad">
-                <a href="/alquiler-detalle?id=${propiedad.in_num}" class="propiedad">
+                <a href="/alquiler-detalle/index.html?id=${propiedad.in_num}" class="propiedad">
                   <div class="_slider propiedad__slider">
                     ${sliderImages(propiedadesAlquiler.img[index])}
                   </div>

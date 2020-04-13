@@ -339,6 +339,10 @@
                 height: 70%;
                 width: 150px;
             }
+
+            &:hover {
+                background: darken($red, 10%);
+            }
         }
     }
 

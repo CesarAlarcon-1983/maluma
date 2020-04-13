@@ -72,7 +72,6 @@ if($dataSet === 'destacados') {
     if(isset($_GET['tipo'])){ $data['tipo_inmueble'] = $_GET['tipo']; }
     if(isset($_GET['barrio'])){ $data['barrios1'] = $_GET['barrio']; }
     if(isset($_GET['ambientes'])){ $data['Ambientes'] = $_GET['ambientes']; }
-    // if(isset($_GET['ambientesMax'])){ $data['Ambientes2'] = $_GET['ambientesMax']; }
     if(isset($_GET['min'])){ $data['valor_minimo'] = $_GET['min']; }
     if(isset($_GET['max'])){ $data['valor_maximo'] = $_GET['max']; }
     if(isset($_GET['moneda'])){ $data['moneda'] = urldecode($_GET['moneda']); }

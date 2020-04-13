@@ -334,6 +334,10 @@
                 pointer-events: none;
                 opacity: .5;
             }
+
+            &:hover {
+                background: darken($red, 10%);
+            }
         }
     }
 

@@ -382,7 +382,7 @@ var PropiedadDetalle = function(phpRootPath, enviroment) {
       if(properties.resultado.img && properties.resultado.img.length > 0) {
         propertiesHtml = properties.resultado.img.map(function(propertyImage, index) {
           return(
-            `<a class="propiedad-detalle__others__image" href="/${operacion}-detalle?id=${properties.resultado.fichas[index].in_num}">
+            `<a class="propiedad-detalle__others__image" href="/${operacion}-detalle/index.html?id=${properties.resultado.fichas[index].in_num}">
               <img src=${propertyImage}/>
             </a>`
           )

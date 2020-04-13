@@ -8,7 +8,6 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
   
   if(context.length > 0) {
     var emprendimiento = {};    
-    // var properties = {};    
     var loadingScreen = $('.loading-screen');
     var body = $('body');
     var sliderContainer = $('.emprendimiento-detalle__main-image');
@@ -21,9 +20,9 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
     var propertiesImagesContainer = $('.-js-other-properties');
     var targets = $('[data-target]');
     var contents = $('[data-content]');
-    // var operacion = window.location.href.indexOf('venta-detalle') > 0 ? 'venta' : 'alquiler';
-    // var direccionInput = $('#propiedad-direccion');
-    // var operacionInput = $('#propiedad-operacion');
+    var operacion = 'emprendimiento';
+    var direccionInput = $('#propiedad-direccion');
+    var operacionInput = $('#propiedad-operacion');
 
     console.log(id);
     var url = function() {
@@ -57,9 +56,9 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
 
       caracteristicasContainer.append(caracteristicasHtmlStructure(emprendimiento));
       formaDePagoContainer.append(formaDePagoHtmlStructure(emprendimiento));
-      console.log(formaDePagoHtmlStructure(emprendimiento));
-      // direccionInput.val(emprendimiento.resultado.ficha[0].direccion);
-      // operacionInput.val(operacion);
+
+      direccionInput.val(emprendimiento.resultado.emprendimiento[0].ed_nom);
+      operacionInput.val(operacion);
     });
 
     // $.when(
@@ -370,7 +369,7 @@ var EmprendimientoDetalle = function(phpRootPath, enviroment) {
       if(properties.resultado.img && properties.resultado.img.length > 0) {
         propertiesHtml = properties.resultado.img.map(function(propertyImage, index) {
           return(
-            `<a class="propiedad-detalle__others__image" href="/${operacion}-detalle?id=${properties.resultado.fichas[index].in_num}">
+            `<a class="propiedad-detalle__others__image" href="/${operacion}-detalle/index.html?id=${properties.resultado.fichas[index].in_num}">
               <img src=${propertyImage}/>
             </a>`
           )

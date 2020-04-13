@@ -435,6 +435,10 @@
             height: 100%;
             width: 100%;
             color: $white;
+
+            &:hover {
+                background: darken($red, 10%);
+            }
         }
 
         &__title {
@@ -508,6 +512,10 @@
             @include mq(md) {
                 width: 25%;
             }
+
+            &:hover {
+                background: darken($red, 10%);
+            }
         }
     }
 
@@ -543,7 +551,7 @@
         }
 
         &__text {
-            color: $blue;
+            color: $white;
             font-size: 16px;
             margin: 0;
             margin-bottom: 20px;
@@ -579,6 +587,10 @@
             padding: 0 40px;
 
             @include mq(md) {
+            }
+
+            &:hover {
+                background: darken($red, 10%);
             }
         }
     }

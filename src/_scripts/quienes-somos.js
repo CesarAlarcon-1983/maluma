@@ -64,7 +64,7 @@ var QuienesSomos = function(phpRootPath, enviroment) {
     function generateDestacadosHtml(destacados) {
       var propiedadesDestacadasSlides = destacados.fichas.map(function(propiedad, index) {
           return(`
-            <a href="/${propiedad.operacion.toLowerCase()}-detalle/?id=${propiedad.in_num}" class="propiedad">
+            <a href="/${propiedad.operacion.toLowerCase()}-detalle/index.html?id=${propiedad.in_num}" class="propiedad">
               <div class="quienes-somos__details__slide">
                 ${sliderImages(destacados, index)}
                 <div class="propiedad__content">

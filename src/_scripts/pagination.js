@@ -38,7 +38,7 @@ var Pagination = {
     }
 
     var paramsForUrl = keys.length > 2 ? "&" + formattedParams.join('&') : "";
-    var url = `/${operacion}?&page=${page}${paramsForUrl}`;
+    var url = `/${operacion}/index.html?&page=${page}${paramsForUrl}`;
 
     return url;
   },
