@@ -91,7 +91,7 @@ var ContactForm = function() {
     function sendPropertyConfirmByEmail(data) {
         $.ajax({
             type: "POST",
-            url: '/enviar.php',
+            url: '/consulta.php',
             crossDomain: true,
             data: {            
                 inputName: data.name,
@@ -158,7 +158,7 @@ var ContactForm = function() {
     function sendContactConfirmByEmail(data) {
         $.ajax({
             type: "POST",
-            url: '/enviar.php',
+            url: '/contacto.php',
             crossDomain: true,
             data: data
         }).done(function(response) {

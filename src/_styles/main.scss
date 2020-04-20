@@ -34,6 +34,11 @@ a {
     }
 }
 
+button {
+  transition: all $duration $easingLight;
+  cursor: pointer;
+}
+
 ul {
     list-style: none;
     padding: 0;

@@ -21,11 +21,12 @@ var PropiedadDetalle = function(phpRootPath, enviroment) {
     var propertiesImagesContainer = $('.-js-other-properties');
     var targets = $('[data-target]');
     var contents = $('[data-content]');
-    var operacion = window.location.href.indexOf('venta-detalle') > 0 ? 'venta' : 'alquiler';
+    var operacionPHP = window.location.href.indexOf('venta-detalle') > 0 ? 'V' : 'T,A';
+    var operacionUrl = window.location.href.indexOf('venta-detalle') > 0 ? 'venta' : 'alquiler';
     var direccionInput = $('#propiedad-direccion');
     var operacionInput = $('#propiedad-operacion');
 
-    var url = function() {
+    var urlPropiedad = function() {
       if(enviroment === "dev") {
         return `${phpRootPath}/propiedades.php?data=propiedad&ficha=${id}`;
       } else {
@@ -33,8 +34,16 @@ var PropiedadDetalle = function(phpRootPath, enviroment) {
       }
     }
 
+    var urlOtherProperties = function() {
+      if(enviroment === "dev") {
+        return `${phpRootPath}/propiedades.php?data=${operacionUrl}&tipo_operacion=${operacionPHP}&page=1`;
+      } else {
+        return `/propiedades.php?data=${operacionUrl}&tipo_operacion=${operacionPHP}&page=1`;
+      }
+    }
+    
     $.when(
-      Properties.get(url())
+      Properties.get(urlPropiedad())
     ).done(function(data) {
       dataPropiedades = JSON.parse(data);
 
@@ -57,16 +66,16 @@ var PropiedadDetalle = function(phpRootPath, enviroment) {
       medidasContainer.append(medidasHtmlStructure(dataPropiedades));
 
       direccionInput.val(dataPropiedades.resultado.ficha[0].direccion);
-      operacionInput.val(operacion);
+      operacionInput.val(operacionUrl);
     });
 
     $.when(
-      Properties.get(`/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=1`)
+      Properties.get(urlOtherProperties())
     ).done(function(data) {
       properties = JSON.parse(data);
       console.log('properties', properties);
 
-      otherPropertiesHtml(properties, operacion);
+      otherPropertiesHtml(properties, operacionUrl);
     });
 
     function sliderHtml(propiedad) {
@@ -136,7 +145,8 @@ var PropiedadDetalle = function(phpRootPath, enviroment) {
       
       var descriptionFormated = propiedad.resultado.ficha[0].in_obs;
 
-      fullDescription.html($('<div />').html(descriptionFormated).text().toLowerCase());
+      fullDescription.html($('<div />').html(descriptionFormated).text());
+      console.log(descriptionFormated);
     }
 
     function detallesHtmlStructure(propiedad) {

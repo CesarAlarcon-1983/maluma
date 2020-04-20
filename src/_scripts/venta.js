@@ -13,7 +13,8 @@ var Venta = function(phpRootPath, enviroment) {
     var body = $('body');
     var arrowLeft = $('.-js-arrow-left');
     var arrowRight = $('.-js-arrow-right');
-    var operacion = 'venta';
+    var operacionUrl = 'venta';
+    var operacionPHP = 'V';
     var currentPage = new URL(window.location.href).searchParams.get('page');
 
     var getParams = function (url) {
@@ -55,9 +56,9 @@ var Venta = function(phpRootPath, enviroment) {
     
     var url = function() {
       if(enviroment === "dev") {
-        return `${phpRootPath}/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}${paramsConstructor(paramsInUrl)}`;
+        return `${phpRootPath}/propiedades.php?data=${operacionUrl}&tipo_operacion=${operacionPHP}&page=${currentPage}${paramsConstructor(paramsInUrl)}`;
       } else {
-        return `/propiedades.php?data=${operacion}&tipo_operacion=${operacion}&page=${currentPage}&${paramsConstructor(paramsInUrl)}`;
+        return `/propiedades.php?data=${operacionUrl}&tipo_operacion=${operacionPHP}&page=${currentPage}&${paramsConstructor(paramsInUrl)}`;
       }
     }
 
